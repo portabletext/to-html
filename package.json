@@ -1,0 +1,87 @@
+{
+  "name": "@portabletext/html",
+  "version": "1.0.1",
+  "description": "Render Portable Text to HTML",
+  "main": "./dist/html-portable-text.cjs.js",
+  "module": "./dist/html-portable-text.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/html-portable-text.esm.js",
+      "require": "./dist/html-portable-text.cjs.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/stats.html",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint . && tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run lint",
+    "build": "vite build",
+    "test": "tap test/*.test.*",
+    "prettify": "prettier --write src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx",
+    "prettify-check": "prettier --check src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/portabletext/html-portabletext.git"
+  },
+  "keywords": [
+    "portable-text"
+  ],
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/tap": "^15.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "esbuild-register": "^3.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "^5.1.0",
+    "prettier": "^2.5.1",
+    "rollup-plugin-visualizer": "^5.5.4",
+    "tap": "^15.1.5",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.4",
+    "vite-dts": "^1.0.4"
+  },
+  "bugs": {
+    "url": "https://github.com/portabletext/html-portabletext/issues"
+  },
+  "homepage": "https://github.com/portabletext/html-portabletext#readme",
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 9,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "extends": [
+      "sanity",
+      "sanity/html",
+      "sanity/typescript",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "lib/**/"
+    ]
+  },
+  "tap": {
+    "node-arg": [
+      "-r",
+      "esbuild-register"
+    ],
+    "check-coverage": false
+  }
+}
