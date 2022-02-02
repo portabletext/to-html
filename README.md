@@ -43,7 +43,7 @@ In the below examples we use the [htm](https://github.com/developit/htm) and [vh
 ```js
 import htm from 'htm'
 import vhtml from 'vhtml'
-import {toHTML} from '@portabletext/html'
+import {toHTML, uriLooksSafe} from '@portabletext/html'
 
 const html = htm.bind(vhtml)
 
@@ -58,8 +58,17 @@ const myPortableTextSerializers = {
 
   marks: {
     link: ({children, value}) => {
-      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
-      return html`<a href="${value.href}" rel="${rel}">${children}</a>`
+      // ⚠️ `value.href` IS NOT "SAFE" BY DEFAULT ⚠️
+      // ⚠️ Make sure you sanitize/validate the href! ⚠️
+      const href = value.href || ''
+
+      if (uriLooksSafe(href)) {
+        const rel = href.startsWith('/') ? undefined : 'noreferrer noopener'
+        return html`<a href="${value.href}" rel="${rel}">${children}</a>`
+      }
+
+      // If the URI appears unsafe, render the children (eg, text) without the link
+      return children
     },
   },
 }
@@ -167,6 +176,30 @@ toHTML(
     },
   }
 )
+```
+
+## Missing links
+
+If you find there are links that are not being rendered, it is likely because the `href` property (eg the URI) of the link is not considered "safe". This is done to prevent URIs like `javascript:someDangerousFn()` and similar from being rendered. If you want to override this behavior, provide a custom serializer for the `link` mark:
+
+```js
+import {escapeHtml} from `@portabletext/html`
+
+toHTML(portableTextBlocks, {
+  serializers: {
+    marks: {
+      link: ({children, value}) => {
+        // ⚠️ `value.href` IS NOT "SAFE" BY DEFAULT ⚠️
+        // ⚠️ Make sure you sanitize/validate the href! ⚠️
+        const unsafeUri = value.href || ''
+        const looksSafe = /^(http|https|mailto|my-custom-proto):/i.test(unsafeUri)
+        return looksSafe
+          ? `<a href="${escapeHtml(value.href)}">${children}</a>`
+          : children
+      },
+    }
+  },
+})
 ```
 
 ## Rendering Plain Text

@@ -26,6 +26,7 @@ import imageWithHotspot from './025-image-with-hotspot'
 import inlineBlockWithText from './026-inline-block-with-text'
 import styledListItems from './027-styled-list-items'
 import customListItemType from './028-custom-list-item-type'
+import injectionLinkHref from './040-injection-link-href'
 import customBlockType from './050-custom-block-type'
 import overrideDefaults from './051-override-defaults'
 import customMarks from './052-custom-marks'
@@ -62,6 +63,7 @@ export {
   inlineBlockWithText,
   styledListItems,
   customListItemType,
+  injectionLinkHref,
   customBlockType,
   overrideDefaults,
   customMarks,

@@ -1,13 +1,16 @@
 import type {PortableTextMarkSerializer, TypedObject} from '../types'
-import {escapeHtml} from '../escape'
+import {escapeHtml, uriLooksSafe} from '../escape'
 
 interface DefaultLink extends TypedObject {
   _type: 'link'
   href: string
 }
 
-const link: PortableTextMarkSerializer<DefaultLink> = ({children, value}) =>
-  `<a href="${escapeHtml(value?.href || '')}">${children}</a>`
+const link: PortableTextMarkSerializer<DefaultLink> = ({children, value}) => {
+  const href = value?.href || ''
+  const looksSafe = uriLooksSafe(href)
+  return looksSafe ? `<a href="${escapeHtml(href)}">${children}</a>` : children
+}
 
 export const defaultMarks: Record<string, PortableTextMarkSerializer | undefined> = {
   em: ({children}) => `<em>${children}</em>`,
