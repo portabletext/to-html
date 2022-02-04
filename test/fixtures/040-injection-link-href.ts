@@ -1,4 +1,4 @@
-import type {PortableTextBlock} from '../../src/types'
+import type {PortableTextBlock} from '@portabletext/types'
 
 const input: PortableTextBlock = {
   _key: 'R5FvMrjo',
@@ -105,6 +105,7 @@ const input: PortableTextBlock = {
     {
       _type: 'link',
       _key: 'jsUri',
+      // eslint-disable-next-line no-script-url
       href: 'javascript:alert("no this shouldnt execute")',
     },
     {

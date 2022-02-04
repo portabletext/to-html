@@ -1,4 +1,5 @@
-import type {PortableTextMarkSerializer, TypedObject} from '../types'
+import type {PortableTextMarkSerializer} from '../types'
+import type {TypedObject} from '@portabletext/types'
 import {escapeHtml, uriLooksSafe} from '../escape'
 
 interface DefaultLink extends TypedObject {

@@ -1,33 +1,32 @@
-import {
-  ListNestMode,
-  SerializedBlock,
-  ToolkitNestedPortableTextSpan,
-  ToolkitTextNode,
-} from './toolkit/types'
 import type {
   ArbitraryTypedObject,
-  MarkDefinition,
+  PortableTextBlock,
+  PortableTextListItemBlock,
+  PortableTextMarkDefinition,
+  PortableTextSpan,
+  TypedObject,
+} from '@portabletext/types'
+import type {
   MissingSerializerHandler,
   NodeRenderer,
-  PortableTextBlock,
   PortableTextHtmlSerializers,
-  PortableTextListItemBlock,
   PortableTextOptions,
-  PortableTextSpan,
   HtmlPortableTextList,
   Serializable,
-  TypedObject,
+  SerializedBlock,
 } from './types'
 import {
-  isListItemBlock,
+  buildMarksTree,
   isPortableTextBlock,
-  isToolkitList,
-  isToolkitSpan,
-  isToolkitTextNode,
-} from './toolkit/asserters'
-import {nestLists} from './toolkit/nestLists'
-import {spanToPlainText} from './toolkit/toPlainText'
-import {buildMarksTree} from './toolkit/buildMarksTree'
+  isPortableTextListItemBlock,
+  isPortableTextToolkitList,
+  isPortableTextToolkitSpan,
+  isPortableTextToolkitTextNode,
+  nestLists,
+  spanToPlainText,
+  ToolkitNestedPortableTextSpan,
+  ToolkitTextNode,
+} from '@portabletext/toolkit'
 import {defaultSerializers} from './serializers/defaults'
 import {mergeSerializers} from './serializers/merge'
 import {escapeHtml} from './escape'
@@ -46,13 +45,12 @@ export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryType
 ): string {
   const {
     serializers: serializerOverrides,
-    listNestingMode,
     onMissingSerializer: missingSerializerHandler = printWarning,
   } = options
 
   const handleMissingSerializer = missingSerializerHandler || noop
   const blocks = Array.isArray(value) ? value : [value]
-  const nested = nestLists(blocks, listNestingMode || ListNestMode.Html)
+  const nested = nestLists(blocks, 'html')
   const serializers = serializerOverrides
     ? mergeSerializers(defaultSerializers, serializerOverrides)
     : defaultSerializers
@@ -72,15 +70,15 @@ const getNodeRenderer = (
   function renderNode<N extends TypedObject>(options: Serializable<N>): string {
     const {node, index, isInline} = options
 
-    if (isToolkitList(node)) {
+    if (isPortableTextToolkitList(node)) {
       return renderList(node, index)
     }
 
-    if (isListItemBlock(node)) {
+    if (isPortableTextListItemBlock(node)) {
       return renderListItem(node, index)
     }
 
-    if (isToolkitSpan(node)) {
+    if (isPortableTextToolkitSpan(node)) {
       return renderSpan(node)
     }
 
@@ -88,7 +86,7 @@ const getNodeRenderer = (
       return renderBlock(node, index, isInline)
     }
 
-    if (isToolkitTextNode(node)) {
+    if (isPortableTextToolkitTextNode(node)) {
       return renderText(node)
     }
 
@@ -96,15 +94,15 @@ const getNodeRenderer = (
   }
 
   function renderListItem(
-    node: PortableTextListItemBlock<MarkDefinition, PortableTextSpan>,
+    node: PortableTextListItemBlock<PortableTextMarkDefinition, PortableTextSpan>,
     index: number
   ): string {
     const tree = serializeBlock({node, index, isInline: false, renderNode})
     const renderer = serializers.listItem
     const handler = typeof renderer === 'function' ? renderer : renderer[node.listItem]
-    const listItem = handler || serializers.unknownListItem
+    const itemHandler = handler || serializers.unknownListItem
 
-    if (listItem === serializers.unknownListItem) {
+    if (itemHandler === serializers.unknownListItem) {
       const style = node.listItem || 'bullet'
       handleMissingSerializer(unknownListItemStyleWarning(style), {
         type: style,
@@ -119,7 +117,7 @@ const getNodeRenderer = (
       children = renderNode({node: blockNode, index, isInline: false, renderNode})
     }
 
-    return listItem({value: node, index, isInline: false, renderNode, children})
+    return itemHandler({value: node, index, isInline: false, renderNode, children})
   }
 
   function renderList(node: HtmlPortableTextList, index: number): string {

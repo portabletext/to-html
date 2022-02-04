@@ -1,4 +1,5 @@
-import type {BlockStyle, PortableTextBlockSerializer, PortableTextHtmlSerializers} from '../types'
+import type {PortableTextBlockSerializer, PortableTextHtmlSerializers} from '../types'
+import type {PortableTextBlockStyle} from '@portabletext/types'
 import {defaultMarks} from './marks'
 import {defaultLists, DefaultListItem} from './list'
 import {
@@ -9,9 +10,12 @@ import {
   DefaultUnknownBlockStyle,
 } from './unknown'
 
-export const DefaultHardBreak = () => '<br/>'
+export const DefaultHardBreak = (): string => '<br/>'
 
-export const defaultBlockStyles: Record<BlockStyle, PortableTextBlockSerializer | undefined> = {
+export const defaultPortableTextBlockStyles: Record<
+  PortableTextBlockStyle,
+  PortableTextBlockSerializer | undefined
+> = {
   normal: ({children}) => `<p>${children}</p>`,
   blockquote: ({children}) => `<blockquote>${children}</blockquote>`,
   h1: ({children}) => `<h1>${children}</h1>`,
@@ -25,7 +29,7 @@ export const defaultBlockStyles: Record<BlockStyle, PortableTextBlockSerializer 
 export const defaultSerializers: PortableTextHtmlSerializers = {
   types: {},
 
-  block: defaultBlockStyles,
+  block: defaultPortableTextBlockStyles,
   marks: defaultMarks,
   list: defaultLists,
   listItem: DefaultListItem,

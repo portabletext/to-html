@@ -1,13 +1,13 @@
 import tap from 'tap'
-import {escapeHtml} from '../src'
-import {toHTML} from '../src/html-portable-text'
-import {
-  ArbitraryTypedObject,
+import type {ArbitraryTypedObject} from '@portabletext/types'
+import type {
   PortableTextHtmlSerializers,
   PortableTextMarkSerializer,
   PortableTextOptions,
   MissingSerializerHandler,
 } from '../src/types'
+import {escapeHtml} from '../src'
+import {toHTML} from '../src/html-portable-text'
 import * as fixtures from './fixtures'
 
 const render = (

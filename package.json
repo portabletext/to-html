@@ -69,7 +69,6 @@
     },
     "extends": [
       "sanity",
-      "sanity/html",
       "sanity/typescript",
       "prettier"
     ],
@@ -83,5 +82,9 @@
       "esbuild-register"
     ],
     "check-coverage": false
+  },
+  "dependencies": {
+    "@portabletext/toolkit": "^1.0.3",
+    "@portabletext/types": "^1.0.2"
   }
 }

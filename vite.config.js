@@ -13,6 +13,7 @@ module.exports = defineConfig({
       fileName: (format) => `html-portable-text.${format}.js`,
     },
     rollupOptions: {
+      external: ['@portabletext/toolkit', '@portabletext/types'],
       output: {
         // Since we publish our ./src folder, there's no point in bloating sourcemaps with another copy of it.
         sourcemapExcludeSources: true,

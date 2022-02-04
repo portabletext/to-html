@@ -1,10 +1,7 @@
 import tap from 'tap'
+import type {ArbitraryTypedObject} from '@portabletext/types'
+import type {PortableTextHtmlSerializers, PortableTextOptions} from '../src/types'
 import {toHTML} from '../src/html-portable-text'
-import type {
-  PortableTextHtmlSerializers,
-  PortableTextOptions,
-  ArbitraryTypedObject,
-} from '../src/types'
 import * as fixtures from './fixtures'
 
 const render = (

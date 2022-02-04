@@ -202,41 +202,6 @@ toHTML(portableTextBlocks, {
 })
 ```
 
-## Rendering Plain Text
-
-This module also exports a function (`toPlainText()`) that will render one or more Portable Text blocks as plain text. This is helpful in cases where formatted text is not supported, or you need to process the raw text value.
-
-For instance, to render an OpenGraph meta description for a page:
-
-```tsx
-import {toPlainText} from '@portabletext/html'
-
-const MetaDescription = toPlainText(myPortableTextData)
-```
-
-Or to generate element IDs for headers, in order for them to be linkable:
-
-```jsx
-import {toPlainText} from '@portabletext/html'
-import slugify from 'slugify'
-
-const linkableHeader = ({children, value}) => {
-  // `value` is the single Portable Text block of this header
-  const slug = slugify(toPlainText(value))
-  return html`<h2 id="${slug}">${children}</h2>`
-}
-
-console.log(
-  toHTML(myPortableTextData, {
-    serializers: {
-      block: {
-        h2: LinkableHeader,
-      },
-    },
-  })
-)
-```
-
 ## License
 
 MIT © [Sanity.io](https://www.sanity.io/)

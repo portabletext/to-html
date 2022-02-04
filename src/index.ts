@@ -1,6 +1,4 @@
 export * from './types'
-export {ListNestMode} from './toolkit/types'
-export {toPlainText} from './toolkit/toPlainText'
 export {toHTML} from './html-portable-text'
 export {mergeSerializers} from './serializers/merge'
 export {defaultSerializers} from './serializers/defaults'
