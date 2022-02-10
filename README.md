@@ -1,19 +1,19 @@
-# @portabletext/html
+# @portabletext/to-html
 
-[![npm version](https://img.shields.io/npm/v/@portabletext/html.svg?style=flat-square)](https://www.npmjs.com/package/@portabletext/html)[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@portabletext/html?style=flat-square)](https://bundlephobia.com/result?p=@portabletext/html)[![Build Status](https://img.shields.io/github/workflow/status/portabletext/html-portabletext/test/main.svg?style=flat-square)](https://github.com/portabletext/html-portabletext/actions?query=workflow%3Atest)
+[![npm version](https://img.shields.io/npm/v/@portabletext/to-html.svg?style=flat-square)](https://www.npmjs.com/package/@portabletext/to-html)[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@portabletext/to-html?style=flat-square)](https://bundlephobia.com/result?p=@portabletext/to-html)[![Build Status](https://img.shields.io/github/workflow/status/portabletext/html-portabletext/test/main.svg?style=flat-square)](https://github.com/portabletext/html-portabletext/actions?query=workflow%3Atest)
 
 Render [Portable Text](https://portabletext.org/) to HTML.
 
 ## Installation
 
 ```
-npm install --save @portabletext/html
+npm install --save @portabletext/to-html
 ```
 
 ## Basic usage
 
 ```js
-import {toHTML} from '@portabletext/html'
+import {toHTML} from '@portabletext/to-html'
 
 console.log(
   toHTML(portableTextBlocks, {
@@ -43,7 +43,7 @@ In the below examples we use the [htm](https://github.com/developit/htm) and [vh
 ```js
 import htm from 'htm'
 import vhtml from 'vhtml'
-import {toHTML, uriLooksSafe} from '@portabletext/html'
+import {toHTML, uriLooksSafe} from '@portabletext/to-html'
 
 const html = htm.bind(vhtml)
 
@@ -149,7 +149,7 @@ When the library encounters a block, mark, list or list item with a type that is
 To disable this behavior, you can either pass `false` to the `onMissingSerializer` property, or give it a custom function you want to use to report the error. For instance:
 
 ```jsx
-import {toHTML} from '@portabletext/html'
+import {toHTML} from '@portabletext/to-html'
 
 toHTML(
   [
@@ -183,7 +183,7 @@ toHTML(
 If you find there are links that are not being rendered, it is likely because the `href` property (eg the URI) of the link is not considered "safe". This is done to prevent URIs like `javascript:someDangerousFn()` and similar from being rendered. If you want to override this behavior, provide a custom serializer for the `link` mark:
 
 ```js
-import {escapeHtml} from `@portabletext/html`
+import {escapeHtml} from `@portabletext/to-html`
 
 toHTML(portableTextBlocks, {
   serializers: {

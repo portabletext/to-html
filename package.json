@@ -1,5 +1,5 @@
 {
-  "name": "@portabletext/html",
+  "name": "@portabletext/to-html",
   "version": "1.0.1",
   "description": "Render Portable Text to HTML",
   "main": "./dist/html-portable-text.cjs.js",
