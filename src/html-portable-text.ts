@@ -29,7 +29,7 @@ import {
 } from '@portabletext/toolkit'
 import {defaultSerializers} from './serializers/defaults'
 import {mergeSerializers} from './serializers/merge'
-import {escapeHtml} from './escape'
+import {escapeHTML} from './escape'
 import {
   printWarning,
   unknownBlockStyleWarning,
@@ -186,7 +186,7 @@ const getNodeRenderer = (
       return hardBreak ? hardBreak() : '\n'
     }
 
-    return escapeHtml(node.text)
+    return escapeHTML(node.text)
   }
 
   function renderCustomBlock(value: TypedObject, index: number, isInline: boolean): string {

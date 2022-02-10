@@ -7,7 +7,7 @@ const charMap: Record<string, string> = {
   "'": '#x27',
 }
 
-export function escapeHtml(str: string): string {
+export function escapeHTML(str: string): string {
   return str.replace(/[&<>"']/g, (s) => `&${charMap[s]};`)
 }
 

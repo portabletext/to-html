@@ -64,7 +64,7 @@ const myPortableTextSerializers = {
 
       if (uriLooksSafe(href)) {
         const rel = href.startsWith('/') ? undefined : 'noreferrer noopener'
-        return html`<a href="${value.href}" rel="${rel}">${children}</a>`
+        return html`<a href="${href}" rel="${rel}">${children}</a>`
       }
 
       // If the URI appears unsafe, render the children (eg, text) without the link
@@ -183,7 +183,7 @@ toHTML(
 If you find there are links that are not being rendered, it is likely because the `href` property (eg the URI) of the link is not considered "safe". This is done to prevent URIs like `javascript:someDangerousFn()` and similar from being rendered. If you want to override this behavior, provide a custom serializer for the `link` mark:
 
 ```js
-import {escapeHtml} from `@portabletext/to-html`
+import {escapeHTML} from `@portabletext/to-html`
 
 toHTML(portableTextBlocks, {
   serializers: {
@@ -194,7 +194,7 @@ toHTML(portableTextBlocks, {
         const unsafeUri = value.href || ''
         const looksSafe = /^(http|https|mailto|my-custom-proto):/i.test(unsafeUri)
         return looksSafe
-          ? `<a href="${escapeHtml(value.href)}">${children}</a>`
+          ? `<a href="${escapeHTML(value.href)}">${children}</a>`
           : children
       },
     }
