@@ -1,19 +1,19 @@
 import tap from 'tap'
 import type {ArbitraryTypedObject} from '@portabletext/types'
 import type {
-  PortableTextHtmlSerializers,
-  PortableTextMarkSerializer,
+  PortableTextHtmlComponents,
+  PortableTextMarkComponent,
   PortableTextOptions,
-  MissingSerializerHandler,
+  MissingComponentHandler,
 } from '../src/types'
-import {escapeHtml} from '../src'
+import {escapeHTML} from '../src'
 import {toHTML} from '../src/html-portable-text'
 import * as fixtures from './fixtures'
 
 const render = (
   value: ArbitraryTypedObject | ArbitraryTypedObject[],
   options?: PortableTextOptions
-) => toHTML(value, {onMissingSerializer: false, ...options})
+) => toHTML(value, {onMissingComponent: false, ...options})
 
 tap.test('builds empty tree on empty block', (t) => {
   const {input, output} = fixtures.emptyBlock
@@ -115,11 +115,11 @@ tap.test('renders all default block styles', (t) => {
 
 tap.test('sorts marks correctly on equal number of occurences', (t) => {
   const {input, output} = fixtures.marksAllTheWayDown
-  const marks: PortableTextHtmlSerializers['marks'] = {
+  const marks: PortableTextHtmlComponents['marks'] = {
     highlight: ({value, children}) =>
       `<span style="border:${value?.thickness}px solid">${children}</span>`,
   }
-  const result = render(input, {serializers: {marks}})
+  const result = render(input, {components: {marks}})
   t.same(result, output)
   t.end()
 })
@@ -148,7 +148,7 @@ tap.test('handles lists without level', (t) => {
 tap.test('handles inline non-span nodes', (t) => {
   const {input, output} = fixtures.inlineNodes
   const result = render(input, {
-    serializers: {
+    components: {
       types: {
         rating: ({value}) => {
           return `<span class="rating type-${value.type} rating-${value.rating}"></span>`
@@ -167,17 +167,17 @@ tap.test('handles hardbreaks', (t) => {
   t.end()
 })
 
-tap.test('can disable hardbreak serializer', (t) => {
+tap.test('can disable hardbreak component', (t) => {
   const {input, output} = fixtures.hardBreaks
-  const result = render(input, {serializers: {hardBreak: false}})
+  const result = render(input, {components: {hardBreak: false}})
   t.same(result, output.replace(/<br\/>/g, '\n'))
   t.end()
 })
 
-tap.test('can customize hardbreak serializer', (t) => {
+tap.test('can customize hardbreak component', (t) => {
   const {input, output} = fixtures.hardBreaks
   const hardBreak = () => `<br class="dat-newline"/>`
-  const result = render(input, {serializers: {hardBreak}})
+  const result = render(input, {components: {hardBreak}})
   t.same(result, output.replace(/<br\/>/g, '<br class="dat-newline"/>'))
   t.end()
 })
@@ -185,7 +185,7 @@ tap.test('can customize hardbreak serializer', (t) => {
 tap.test('can nest marks correctly in block/marks context', (t) => {
   const {input, output} = fixtures.inlineImages
   const result = render(input, {
-    serializers: {types: {image: ({value}) => `<img src="${escapeHtml(value.url)}"/>`}},
+    components: {types: {image: ({value}) => `<img src="${escapeHTML(value.url)}"/>`}},
   })
   t.same(result, output)
   t.end()
@@ -194,7 +194,7 @@ tap.test('can nest marks correctly in block/marks context', (t) => {
 tap.test('can render inline block with text property', (t) => {
   const {input, output} = fixtures.inlineBlockWithText
   const result = render(input, {
-    serializers: {
+    components: {
       types: {button: (options) => `<button type="button">${options.value.text}</button>`},
     },
   })
@@ -216,10 +216,10 @@ tap.test('can render custom list item styles with fallback', (t) => {
   t.end()
 })
 
-tap.test('can render custom list item styles with provided list style serializer', (t) => {
+tap.test('can render custom list item styles with provided list style component', (t) => {
   const {input} = fixtures.customListItemType
   const result = render(input, {
-    serializers: {list: {square: ({children}) => `<ul class="list-squared">${children}</ul>`}},
+    components: {list: {square: ({children}) => `<ul class="list-squared">${children}</ul>`}},
   })
   t.same(
     result,
@@ -228,10 +228,10 @@ tap.test('can render custom list item styles with provided list style serializer
   t.end()
 })
 
-tap.test('can render custom list item styles with provided list style serializer', (t) => {
+tap.test('can render custom list item styles with provided list style component', (t) => {
   const {input} = fixtures.customListItemType
   const result = render(input, {
-    serializers: {
+    components: {
       listItem: {
         square: ({children}) => `<li class="item-squared">${children}</li>`,
       },
@@ -244,10 +244,10 @@ tap.test('can render custom list item styles with provided list style serializer
   t.end()
 })
 
-tap.test('warns on missing list style serializer', (t) => {
+tap.test('warns on missing list style component', (t) => {
   const {input} = fixtures.customListItemType
   const result = render(input, {
-    serializers: {list: {}},
+    components: {list: {}},
   })
   t.same(
     result,
@@ -256,10 +256,10 @@ tap.test('warns on missing list style serializer', (t) => {
   t.end()
 })
 
-tap.test('can render styled list items with custom list item serializer', (t) => {
+tap.test('can render styled list items with custom list item component', (t) => {
   const {input, output} = fixtures.styledListItems
   const result = render(input, {
-    serializers: {
+    components: {
       listItem: ({children}) => `<li>${children}</li>`,
     },
   })
@@ -267,9 +267,9 @@ tap.test('can render styled list items with custom list item serializer', (t) =>
   t.end()
 })
 
-tap.test('can specify custom serializer for custom block types', (t) => {
+tap.test('can specify custom component for custom block types', (t) => {
   const {input, output} = fixtures.customBlockType
-  const types: Partial<PortableTextHtmlSerializers>['types'] = {
+  const types: Partial<PortableTextHtmlComponents>['types'] = {
     code: ({renderNode, ...options}) => {
       t.same(options, {
         value: {
@@ -282,56 +282,56 @@ tap.test('can specify custom serializer for custom block types', (t) => {
         isInline: false,
       })
 
-      return `<pre data-language="${escapeHtml(options.value.language)}"><code>${escapeHtml(
+      return `<pre data-language="${escapeHTML(options.value.language)}"><code>${escapeHTML(
         options.value.code
       )}</code></pre>`
     },
   }
-  const result = render(input, {serializers: {types}})
+  const result = render(input, {components: {types}})
   t.same(result, output)
   t.end()
 })
 
-tap.test('can specify custom serializers for custom marks', (t) => {
+tap.test('can specify custom components for custom marks', (t) => {
   const {input, output} = fixtures.customMarks
-  const highlight: PortableTextMarkSerializer<{_type: 'highlight'; thickness: number}> = ({
+  const highlight: PortableTextMarkComponent<{_type: 'highlight'; thickness: number}> = ({
     value,
     children,
   }) => `<span style="border:${value?.thickness}px solid">${children}</span>`
 
-  const result = render(input, {serializers: {marks: {highlight}}})
+  const result = render(input, {components: {marks: {highlight}}})
   t.same(result, output)
   t.end()
 })
 
-tap.test('can specify custom serializers for defaults marks', (t) => {
+tap.test('can specify custom components for defaults marks', (t) => {
   const {input, output} = fixtures.overrideDefaultMarks
-  const link: PortableTextMarkSerializer<{_type: 'link'; href: string}> = ({value, children}) =>
+  const link: PortableTextMarkComponent<{_type: 'link'; href: string}> = ({value, children}) =>
     `<a class="mahlink" href="${value?.href}">${children}</a>`
 
-  const result = render(input, {serializers: {marks: {link}}})
+  const result = render(input, {components: {marks: {link}}})
   t.same(result, output)
   t.end()
 })
 
-tap.test('falls back to default serializer for missing mark serializers', (t) => {
-  const {input, output} = fixtures.missingMarkSerializer
+tap.test('falls back to default component for missing mark components', (t) => {
+  const {input, output} = fixtures.missingMarkComponent
   const result = render(input)
   t.same(result, output)
   t.end()
 })
 
-tap.test('can register custom `missing serializer` handler', (t) => {
+tap.test('can register custom `missing component` handler', (t) => {
   let warning = '<never called>'
-  const onMissingSerializer: MissingSerializerHandler = (message) => {
+  const onMissingComponent: MissingComponentHandler = (message) => {
     warning = message
   }
 
-  const {input} = fixtures.missingMarkSerializer
-  render(input, {onMissingSerializer: onMissingSerializer})
+  const {input} = fixtures.missingMarkComponent
+  render(input, {onMissingComponent: onMissingComponent})
   t.same(
     warning,
-    'Unknown mark type "abc", specify a serializer for it in the `serializers.marks` option'
+    'Unknown mark type "abc", specify a component for it in the `components.marks` option'
   )
   t.end()
 })

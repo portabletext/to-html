@@ -7,9 +7,9 @@ import type {
   TypedObject,
 } from '@portabletext/types'
 import type {
-  MissingSerializerHandler,
+  MissingComponentHandler,
   NodeRenderer,
-  PortableTextHtmlSerializers,
+  PortableTextHtmlComponents,
   PortableTextOptions,
   HtmlPortableTextList,
   Serializable,
@@ -27,8 +27,8 @@ import {
   ToolkitNestedPortableTextSpan,
   ToolkitTextNode,
 } from '@portabletext/toolkit'
-import {defaultSerializers} from './serializers/defaults'
-import {mergeSerializers} from './serializers/merge'
+import {defaultComponents} from './components/defaults'
+import {mergeComponents} from './components/merge'
 import {escapeHTML} from './escape'
 import {
   printWarning,
@@ -44,18 +44,18 @@ export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryType
   options: PortableTextOptions = {}
 ): string {
   const {
-    serializers: serializerOverrides,
-    onMissingSerializer: missingSerializerHandler = printWarning,
+    components: componentOverrides,
+    onMissingComponent: missingComponentHandler = printWarning,
   } = options
 
-  const handleMissingSerializer = missingSerializerHandler || noop
+  const handleMissingComponent = missingComponentHandler || noop
   const blocks = Array.isArray(value) ? value : [value]
   const nested = nestLists(blocks, 'html')
-  const serializers = serializerOverrides
-    ? mergeSerializers(defaultSerializers, serializerOverrides)
-    : defaultSerializers
+  const components = componentOverrides
+    ? mergeComponents(defaultComponents, componentOverrides)
+    : defaultComponents
 
-  const renderNode = getNodeRenderer(serializers, handleMissingSerializer)
+  const renderNode = getNodeRenderer(components, handleMissingComponent)
   const rendered = nested.map((node, index) =>
     renderNode({node: node, index, isInline: false, renderNode})
   )
@@ -64,8 +64,8 @@ export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryType
 }
 
 const getNodeRenderer = (
-  serializers: PortableTextHtmlSerializers,
-  handleMissingSerializer: MissingSerializerHandler
+  components: PortableTextHtmlComponents,
+  handleMissingComponent: MissingComponentHandler
 ): NodeRenderer => {
   function renderNode<N extends TypedObject>(options: Serializable<N>): string {
     const {node, index, isInline} = options
@@ -98,13 +98,13 @@ const getNodeRenderer = (
     index: number
   ): string {
     const tree = serializeBlock({node, index, isInline: false, renderNode})
-    const renderer = serializers.listItem
+    const renderer = components.listItem
     const handler = typeof renderer === 'function' ? renderer : renderer[node.listItem]
-    const itemHandler = handler || serializers.unknownListItem
+    const itemHandler = handler || components.unknownListItem
 
-    if (itemHandler === serializers.unknownListItem) {
+    if (itemHandler === components.unknownListItem) {
       const style = node.listItem || 'bullet'
-      handleMissingSerializer(unknownListItemStyleWarning(style), {
+      handleMissingComponent(unknownListItemStyleWarning(style), {
         type: style,
         nodeType: 'listItemStyle',
       })
@@ -112,7 +112,7 @@ const getNodeRenderer = (
 
     let children = tree.children
     if (node.style && node.style !== 'normal') {
-      // Wrap any other style in whatever the block serializer says to use
+      // Wrap any other style in whatever the block component says to use
       const {listItem, ...blockNode} = node
       children = renderNode({node: blockNode, index, isInline: false, renderNode})
     }
@@ -130,13 +130,13 @@ const getNodeRenderer = (
       })
     )
 
-    const serializer = serializers.list
-    const handler = typeof serializer === 'function' ? serializer : serializer[node.listItem]
-    const list = handler || serializers.unknownList
+    const component = components.list
+    const handler = typeof component === 'function' ? component : component[node.listItem]
+    const list = handler || components.unknownList
 
-    if (list === serializers.unknownList) {
+    if (list === components.unknownList) {
       const style = node.listItem || 'bullet'
-      handleMissingSerializer(unknownListStyleWarning(style), {nodeType: 'listStyle', type: style})
+      handleMissingComponent(unknownListStyleWarning(style), {nodeType: 'listStyle', type: style})
     }
 
     return list({value: node, index, isInline: false, renderNode, children: children.join('')})
@@ -144,13 +144,13 @@ const getNodeRenderer = (
 
   function renderSpan(node: ToolkitNestedPortableTextSpan): string {
     const {markDef, markType, markKey} = node
-    const span = serializers.marks[markType] || serializers.unknownMark
+    const span = components.marks[markType] || components.unknownMark
     const children = node.children.map((child, childIndex) =>
       renderNode({node: child, index: childIndex, isInline: true, renderNode})
     )
 
-    if (span === serializers.unknownMark) {
-      handleMissingSerializer(unknownMarkWarning(markType), {nodeType: 'mark', type: markType})
+    if (span === components.unknownMark) {
+      handleMissingComponent(unknownMarkWarning(markType), {nodeType: 'mark', type: markType})
     }
 
     return span({
@@ -167,11 +167,11 @@ const getNodeRenderer = (
     const {_key, ...props} = serializeBlock({node, index, isInline, renderNode})
     const style = props.node.style || 'normal'
     const handler =
-      typeof serializers.block === 'function' ? serializers.block : serializers.block[style]
-    const block = handler || serializers.unknownBlockStyle
+      typeof components.block === 'function' ? components.block : components.block[style]
+    const block = handler || components.unknownBlockStyle
 
-    if (block === serializers.unknownBlockStyle) {
-      handleMissingSerializer(unknownBlockStyleWarning(style), {
+    if (block === components.unknownBlockStyle) {
+      handleMissingComponent(unknownBlockStyleWarning(style), {
         nodeType: 'blockStyle',
         type: style,
       })
@@ -182,7 +182,7 @@ const getNodeRenderer = (
 
   function renderText(node: ToolkitTextNode): string {
     if (node.text === '\n') {
-      const hardBreak = serializers.hardBreak
+      const hardBreak = components.hardBreak
       return hardBreak ? hardBreak() : '\n'
     }
 
@@ -190,17 +190,17 @@ const getNodeRenderer = (
   }
 
   function renderCustomBlock(value: TypedObject, index: number, isInline: boolean): string {
-    const node = serializers.types[value._type]
+    const node = components.types[value._type]
 
     if (!node) {
-      handleMissingSerializer(unknownTypeWarning(value._type), {
+      handleMissingComponent(unknownTypeWarning(value._type), {
         nodeType: 'block',
         type: value._type,
       })
     }
 
-    const serializer = node || serializers.unknownType
-    return serializer({
+    const component = node || components.unknownType
+    return component({
       value,
       isInline,
       index,

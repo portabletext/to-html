@@ -7,7 +7,7 @@ import * as fixtures from './fixtures'
 const render = (
   value: ArbitraryTypedObject | ArbitraryTypedObject[],
   options?: PortableTextOptions
-) => toHTML(value, {onMissingSerializer: false, ...options})
+) => toHTML(value, {onMissingComponent: false, ...options})
 
 tap.test('escapes link hrefs', (t) => {
   const {input, output} = fixtures.injectionLinkHref

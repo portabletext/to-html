@@ -1,5 +1,5 @@
 export * from './types'
 export {toHTML} from './html-portable-text'
-export {mergeSerializers} from './serializers/merge'
-export {defaultSerializers} from './serializers/defaults'
+export {mergeComponents} from './components/merge'
+export {defaultComponents} from './components/defaults'
 export {escapeHTML, uriLooksSafe} from './escape'

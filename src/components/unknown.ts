@@ -1,7 +1,7 @@
-import type {PortableTextHtmlSerializers} from '../types'
+import type {PortableTextHtmlComponents} from '../types'
 import {unknownTypeWarning} from '../warnings'
 
-export const DefaultUnknownType: PortableTextHtmlSerializers['unknownType'] = ({
+export const DefaultUnknownType: PortableTextHtmlComponents['unknownType'] = ({
   value,
   isInline,
 }) => {
@@ -11,24 +11,24 @@ export const DefaultUnknownType: PortableTextHtmlSerializers['unknownType'] = ({
     : `<div style="display:hidden">${warning}</div>`
 }
 
-export const DefaultUnknownMark: PortableTextHtmlSerializers['unknownMark'] = ({
+export const DefaultUnknownMark: PortableTextHtmlComponents['unknownMark'] = ({
   markType,
   children,
 }) => {
   return `<span class="unknown__pt__mark__${markType}">${children}</span>`
 }
 
-export const DefaultUnknownBlockStyle: PortableTextHtmlSerializers['unknownBlockStyle'] = ({
+export const DefaultUnknownBlockStyle: PortableTextHtmlComponents['unknownBlockStyle'] = ({
   children,
 }) => {
   return `<p>${children}</p>`
 }
 
-export const DefaultUnknownList: PortableTextHtmlSerializers['unknownList'] = ({children}) => {
+export const DefaultUnknownList: PortableTextHtmlComponents['unknownList'] = ({children}) => {
   return `<ul>${children}</ul>`
 }
 
-export const DefaultUnknownListItem: PortableTextHtmlSerializers['unknownListItem'] = ({
+export const DefaultUnknownListItem: PortableTextHtmlComponents['unknownListItem'] = ({
   children,
 }) => {
   return `<li>${children}</li>`

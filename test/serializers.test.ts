@@ -4,9 +4,9 @@ import tap from 'tap'
 import {toHTML} from '../src/html-portable-text'
 
 const render = (value: ArbitraryTypedObject, options: PortableTextOptions) =>
-  toHTML(value, {...options, onMissingSerializer: false})
+  toHTML(value, {...options, onMissingComponent: false})
 
-tap.test('can override unknown mark serializer', (t) => {
+tap.test('can override unknown mark component', (t) => {
   const result = render(
     {
       _type: 'block',
@@ -17,7 +17,7 @@ tap.test('can override unknown mark serializer', (t) => {
       ],
     },
     {
-      serializers: {
+      components: {
         unknownMark: ({children, markType}) =>
           `<span class="unknown">Unknown (${markType}): ${children}</span>`,
       },

@@ -32,7 +32,7 @@ import overrideDefaults from './051-override-defaults'
 import customMarks from './052-custom-marks'
 import overrideDefaultMarks from './053-override-default-marks'
 import listIssue from './060-list-issue'
-import missingMarkSerializer from './061-missing-mark-serializer'
+import missingMarkComponent from './061-missing-mark-serializer'
 
 export {
   emptyBlock,
@@ -69,5 +69,5 @@ export {
   customMarks,
   overrideDefaultMarks,
   listIssue,
-  missingMarkSerializer,
+  missingMarkComponent,
 }
