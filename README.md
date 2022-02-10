@@ -30,6 +30,8 @@ The rendered HTML does not have any styling applied, so you will want to either 
 
 ## Customizing components
 
+"Components" are (in this package) just functions, which receive an object of properties that contains the relevant information needed to make a decision about what to render. The return value of the component functions are plain strings containing HTML.
+
 Default component functions are provided for all standard features of the Portable Text spec, with logical HTML defaults.
 
 You can pass an object of component functions to use in the `components` option, both to override the defaults and to provide components for your custom content types.
