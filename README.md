@@ -142,6 +142,32 @@ Serializer function used when encountering a list style there is no registered s
 
 Serializer function used when encountering a list item style there is no registered serializer for in the `serializers.listItem` option. Only used if `serializers.listItem` is an object.
 
+## Default serializers
+
+If you override the default serializers but still want access to the original ones, you can access them by importing `defaultSerializers`:
+
+```ts
+import {defaultSerializers, toHTML, escapeHTML} from '@portabletext/to-html'
+
+toHTML(
+  [
+    /* array of portable text blocks */
+  ],
+  {
+    serializers: {
+      marks: {
+        link: ({children, value, ...rest}) => {
+          const href = value.href || ''
+          return href.startsWith('https://my.site/')
+            ? `<a href="${escapeHTML(href)}" class="internalLink">${children}</a>`
+            : defaultSerializers({children, value, ...rest})
+        },
+      },
+    },
+  }
+)
+```
+
 ## Disabling warnings / handling unknown types
 
 When the library encounters a block, mark, list or list item with a type that is not known (eg it has no corresponding serializer in the `serializers` property), it will by default print a console warning.
