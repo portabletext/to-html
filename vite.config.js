@@ -9,11 +9,11 @@ module.exports = defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['esm', 'cjs'],
-      name: 'html-portable-text',
-      fileName: (format) => `html-portable-text.${format}.js`,
+      name: 'to-html',
+      fileName: (format) => `to-html.${format}.js`,
     },
     rollupOptions: {
-      external: ['@portabletext/toolkit', '@portabletext/types'],
+      external: Object.keys(pkg.dependencies),
       output: {
         // Since we publish our ./src folder, there's no point in bloating sourcemaps with another copy of it.
         sourcemapExcludeSources: true,

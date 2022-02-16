@@ -7,7 +7,7 @@ import type {
   MissingComponentHandler,
 } from '../src/types'
 import {escapeHTML} from '../src'
-import {toHTML} from '../src/html-portable-text'
+import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'
 
 const render = (

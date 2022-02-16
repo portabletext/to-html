@@ -2,12 +2,12 @@
   "name": "@portabletext/to-html",
   "version": "1.0.1",
   "description": "Render Portable Text to HTML",
-  "main": "./dist/html-portable-text.cjs.js",
-  "module": "./dist/html-portable-text.esm.js",
+  "main": "./dist/to-html.cjs.js",
+  "module": "./dist/to-html.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/html-portable-text.esm.js",
-      "require": "./dist/html-portable-text.cjs.js"
+      "import": "./dist/to-html.esm.js",
+      "require": "./dist/to-html.cjs.js"
     }
   },
   "sideEffects": false,
@@ -27,13 +27,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/portabletext/html-portabletext.git"
+    "url": "git+ssh://git@github.com/portabletext/to-html.git"
   },
   "keywords": [
     "portable-text"
   ],
   "author": "Sanity.io <hello@sanity.io>",
   "license": "MIT",
+  "dependencies": {
+    "@portabletext/toolkit": "^1.0.3",
+    "@portabletext/types": "^1.0.2"
+  },
   "devDependencies": {
     "@types/tap": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
@@ -50,9 +54,9 @@
     "vite-dts": "^1.0.4"
   },
   "bugs": {
-    "url": "https://github.com/portabletext/html-portabletext/issues"
+    "url": "https://github.com/portabletext/to-html/issues"
   },
-  "homepage": "https://github.com/portabletext/html-portabletext#readme",
+  "homepage": "https://github.com/portabletext/to-html#readme",
   "prettier": {
     "semi": false,
     "printWidth": 100,
@@ -82,9 +86,5 @@
       "esbuild-register"
     ],
     "check-coverage": false
-  },
-  "dependencies": {
-    "@portabletext/toolkit": "^1.0.3",
-    "@portabletext/types": "^1.0.2"
   }
 }
