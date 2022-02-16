@@ -1,5 +1,5 @@
 const getTemplate = (type: string, prop: string): string =>
-  `Unknown ${type}, specify a component for it in the \`component.${prop}\` option`
+  `Unknown ${type}, specify a component for it in the \`components.${prop}\` option`
 
 export const unknownTypeWarning = (typeName: string): string =>
   getTemplate(`block type "${typeName}"`, 'types')
