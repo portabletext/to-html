@@ -1,6 +1,6 @@
 {
   "name": "@portabletext/to-html",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Render Portable Text to HTML",
   "main": "./dist/to-html.js",
   "module": "./dist/to-html.mjs",
