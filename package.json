@@ -2,12 +2,12 @@
   "name": "@portabletext/to-html",
   "version": "1.0.2",
   "description": "Render Portable Text to HTML",
-  "main": "./dist/to-html.cjs.js",
-  "module": "./dist/to-html.esm.js",
+  "main": "./dist/to-html.js",
+  "module": "./dist/to-html.mjs",
   "exports": {
     ".": {
-      "import": "./dist/to-html.esm.js",
-      "require": "./dist/to-html.cjs.js"
+      "import": "./dist/to-html.mjs",
+      "require": "./dist/to-html.js"
     }
   },
   "sideEffects": false,
@@ -35,10 +35,11 @@
   "author": "Sanity.io <hello@sanity.io>",
   "license": "MIT",
   "dependencies": {
-    "@portabletext/toolkit": "^1.0.3",
+    "@portabletext/toolkit": "^1.0.5",
     "@portabletext/types": "^1.0.2"
   },
   "devDependencies": {
+    "@rexxars/vite-dts": "^1.0.4",
     "@types/tap": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
@@ -50,8 +51,7 @@
     "rollup-plugin-visualizer": "^5.5.4",
     "tap": "^15.1.5",
     "typescript": "^4.5.4",
-    "vite": "^2.7.4",
-    "vite-dts": "^1.0.4"
+    "vite": "^2.7.4"
   },
   "bugs": {
     "url": "https://github.com/portabletext/to-html/issues"

@@ -1,16 +1,20 @@
-const path = require('path')
-const {defineConfig} = require('vite')
-const dts = require('vite-dts').default
-const {visualizer} = require('rollup-plugin-visualizer')
+import path from 'path'
+import {defineConfig} from 'vite'
+import dts from '@rexxars/vite-dts'
+import {visualizer} from 'rollup-plugin-visualizer'
+
 const pkg = require('./package.json')
 
-module.exports = defineConfig({
+export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      formats: ['esm', 'cjs'],
+      formats: ['es', 'cjs'],
       name: 'to-html',
-      fileName: (format) => `to-html.${format}.js`,
+      fileName: (format) => {
+        const ext = format === 'es' ? 'mjs' : 'js'
+        return `to-html.${ext}`
+      },
     },
     rollupOptions: {
       external: Object.keys(pkg.dependencies),
