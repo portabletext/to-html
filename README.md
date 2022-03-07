@@ -4,6 +4,9 @@
 
 Render [Portable Text](https://portabletext.org/) to HTML.
 
+- Using **React**? See [@portabletext/react](https://github.com/portabletext/react-portabletext)
+- Using **Svelte**? See [@portabletext/svelte](https://github.com/portabletext/svelte-portabletext)
+
 ## Installation
 
 ```
