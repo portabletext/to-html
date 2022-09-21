@@ -7,8 +7,8 @@ export const DefaultUnknownType: PortableTextHtmlComponents['unknownType'] = ({
 }) => {
   const warning = unknownTypeWarning(value._type)
   return isInline
-    ? `<span style="display:hidden">${warning}</span>`
-    : `<div style="display:hidden">${warning}</div>`
+    ? `<span style="display:none">${warning}</span>`
+    : `<div style="display:none">${warning}</div>`
 }
 
 export const DefaultUnknownMark: PortableTextHtmlComponents['unknownMark'] = ({
