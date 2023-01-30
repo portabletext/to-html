@@ -1,6 +1,6 @@
 # @portabletext/to-html
 
-[![npm version](https://img.shields.io/npm/v/@portabletext/to-html.svg?style=flat-square)](https://www.npmjs.com/package/@portabletext/to-html)[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@portabletext/to-html?style=flat-square)](https://bundlephobia.com/result?p=@portabletext/to-html)[![Build Status](https://img.shields.io/github/workflow/status/portabletext/html-portabletext/test/main.svg?style=flat-square)](https://github.com/portabletext/html-portabletext/actions?query=workflow%3Atest)
+[![npm version](https://img.shields.io/npm/v/@portabletext/to-html.svg?style=flat-square)](https://www.npmjs.com/package/@portabletext/to-html)[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@portabletext/to-html?style=flat-square)](https://bundlephobia.com/result?p=@portabletext/to-html)[![Build Status](https://img.shields.io/github/actions/workflow/status/portabletext/html-portabletext/test.yml?branch=main&style=flat-square)](https://github.com/portabletext/html-portabletext/actions?query=workflow%3Atest)
 
 Render [Portable Text](https://portabletext.org/) to HTML.
 
