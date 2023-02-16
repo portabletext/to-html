@@ -2,15 +2,38 @@
   "name": "@portabletext/to-html",
   "version": "1.0.4",
   "description": "Render Portable Text to HTML",
-  "main": "./dist/to-html.js",
-  "module": "./dist/to-html.mjs",
+  "keywords": [
+    "portable-text"
+  ],
+  "homepage": "https://github.com/portabletext/to-html#readme",
+  "bugs": {
+    "url": "https://github.com/portabletext/to-html/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/portabletext/to-html.git"
+  },
+  "license": "MIT",
+  "author": "Sanity.io <hello@sanity.io>",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/to-html.mjs",
-      "require": "./dist/to-html.js"
-    }
+      "types": "./dist/pt-to-html.d.ts",
+      "source": "./src/index.ts",
+      "require": "./dist/pt-to-html.js",
+      "node": {
+        "import": "./dist/pt-to-html.cjs.mjs",
+        "require": "./dist/pt-to-html.js"
+      },
+      "import": "./dist/pt-to-html.esm.js",
+      "default": "./dist/pt-to-html.esm.js"
+    },
+    "./package.json": "./package.json"
   },
-  "sideEffects": false,
+  "main": "./dist/pt-to-html.js",
+  "module": "./dist/pt-to-html.esm.js",
+  "source": "./src/index.ts",
+  "types": "./dist/pt-to-html.d.ts",
   "files": [
     "dist",
     "!dist/stats.html",
@@ -18,58 +41,45 @@
     "README.md"
   ],
   "scripts": {
-    "lint": "eslint . && tsc --noEmit",
-    "prepublishOnly": "npm run build && npm run lint",
-    "build": "vite build",
+    "build": "run-s clean pkg:build pkg:check",
+    "clean": "rimraf .nyc_output dist coverage",
+    "coverage": "tap test/*.test.* --coverage-report=html",
+    "docs:build": "typedoc",
+    "format": "prettier --write --cache --ignore-unknown .",
+    "lint": "eslint .",
+    "pkg:build": "pkg-utils build --strict",
+    "pkg:check": "pkg-utils --strict",
+    "prepare": "husky install",
+    "prepublishOnly": "run-s build lint type-check",
     "test": "tap test/*.test.*",
-    "prettify": "prettier --write src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx",
-    "prettify-check": "prettier --check src/**/*.ts src/**/*.tsx test/**/*.ts test/**/*.tsx"
+    "type-check": "tsc --noEmit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/portabletext/to-html.git"
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
-  "keywords": [
-    "portable-text"
-  ],
-  "author": "Sanity.io <hello@sanity.io>",
-  "license": "MIT",
-  "dependencies": {
-    "@portabletext/toolkit": "^1.0.5",
-    "@portabletext/types": "^1.0.2"
+  "lint-staged": {
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ]
   },
-  "devDependencies": {
-    "@rexxars/vite-dts": "^1.0.4",
-    "@types/tap": "^15.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
-    "esbuild-register": "^3.2.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-sanity": "^5.1.0",
-    "prettier": "^2.5.1",
-    "rollup-plugin-visualizer": "^5.5.4",
-    "tap": "^15.1.5",
-    "typescript": "^4.5.4",
-    "vite": "^2.7.4"
-  },
-  "bugs": {
-    "url": "https://github.com/portabletext/to-html/issues"
-  },
-  "homepage": "https://github.com/portabletext/to-html#readme",
   "prettier": {
-    "semi": false,
-    "printWidth": 100,
     "bracketSpacing": false,
+    "plugins": [
+      "prettier-plugin-packagejson"
+    ],
+    "printWidth": 100,
+    "semi": false,
     "singleQuote": true
   },
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 9,
-      "sourceType": "module",
       "ecmaFeatures": {
         "modules": true
-      }
+      },
+      "ecmaVersion": 9,
+      "sourceType": "module"
     },
     "extends": [
       "sanity",
@@ -77,14 +87,67 @@
       "prettier"
     ],
     "ignorePatterns": [
-      "lib/**/"
+      "dist/**/"
     ]
   },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ],
+    "extends": "@sanity/semantic-release-preset"
+  },
   "tap": {
+    "check-coverage": false,
     "node-arg": [
       "-r",
       "esbuild-register"
-    ],
-    "check-coverage": false
+    ]
+  },
+  "dependencies": {
+    "@portabletext/toolkit": "^2.0.1",
+    "@portabletext/types": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@sanity/pkg-utils": "^2.2.3",
+    "@sanity/semantic-release-preset": "^4.0.0",
+    "@types/tap": "^15.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.17.5",
+    "esbuild-register": "^3.4.2",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "^6.0.0",
+    "husky": "^8.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-packagejson": "^2.4.2",
+    "rimraf": "^4.1.2",
+    "semantic-release": "^20.0.4",
+    "tap": "^16.3.0",
+    "typedoc": "^0.23.19",
+    "typescript": "^4.9.4"
+  },
+  "packageManager": "pnpm@7.26.2",
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

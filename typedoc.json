@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "includeVersion": true,
+  "disableSources": true,
+  "sort": ["required-first", "source-order"]
+}
