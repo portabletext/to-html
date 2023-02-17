@@ -51,4 +51,4 @@ package-lock.json
 
 # Compiled portable text library + demo
 /dist
-/demo/dist
+/docs

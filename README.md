@@ -103,7 +103,7 @@ The component function also receives a `children` property that should (usually)
 
 ### `block`
 
-An object of component functions that renders portable text blocks with different `style` properties. The object has the shape {styleName: ComponentFn}`, where `styleName`is the value set in individual `style` attributes on blocks (`normal` being the default).
+An object of component functions that renders portable text blocks with different `style` properties. The object has the shape `{styleName: ComponentFn}`, where `styleName` is the value set in individual `style` attributes on blocks (`normal` being the default).
 
 Can also be set to a single component function, which would handle block styles of _any_ type.
 
