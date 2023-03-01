@@ -119,8 +119,8 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@sanity/pkg-utils": "^2.2.3",
     "@sanity/semantic-release-preset": "^4.0.0",
     "@types/tap": "^15.0.7",
