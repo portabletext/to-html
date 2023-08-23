@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/portabletext/to-html/compare/v2.0.1...v2.0.2) (2023-08-23)
+
+### Bug Fixes
+
+- add provenance ([27ff7a8](https://github.com/portabletext/to-html/commit/27ff7a8f8dd2879c5ee5b2baa53c48fec3d480c1))
+
 ## [2.0.1](https://github.com/portabletext/to-html/compare/v2.0.0...v2.0.1) (2023-08-23)
 
 ### Bug Fixes
