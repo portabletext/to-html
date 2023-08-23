@@ -5,6 +5,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/portabletext/to-html/compare/v2.0.0...v2.0.1) (2023-08-23)
+
+### Bug Fixes
+
+- **esm:** add `node.module` condition ([#22](https://github.com/portabletext/to-html/issues/22)) ([9676248](https://github.com/portabletext/to-html/commit/9676248e5bc6dc8aec85e3dcc0a2853591ffa5d4))
+
 ## [2.0.0](https://github.com/portabletext/to-html/compare/v1.0.4...v2.0.0) (2023-02-17)
 
 ### ⚠ BREAKING CHANGES
