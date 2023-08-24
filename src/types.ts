@@ -55,11 +55,11 @@ export type PortableTextListItemComponent = PortableTextComponent<PortableTextLi
  * @template M The mark type we expect
  */
 export type PortableTextMarkComponent<M extends TypedObject = any> = (
-  options: PortableTextMarkComponentOptions<M>
+  options: PortableTextMarkComponentOptions<M>,
 ) => string
 
 export type PortableTextTypeComponent<V extends TypedObject = any> = (
-  options: PortableTextTypeComponentOptions<V>
+  options: PortableTextTypeComponentOptions<V>,
 ) => string
 
 /**
@@ -265,7 +265,7 @@ export type NodeType = 'block' | 'mark' | 'blockStyle' | 'listStyle' | 'listItem
 
 export type MissingComponentHandler = (
   message: string,
-  options: {type: string; nodeType: NodeType}
+  options: {type: string; nodeType: NodeType},
 ) => void
 
 export interface Serializable<T> {

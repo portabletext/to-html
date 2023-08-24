@@ -23,7 +23,7 @@ console.log(
     components: {
       /* optional object of custom components to use */
     },
-  })
+  }),
 )
 ```
 
@@ -169,7 +169,7 @@ toHTML(
         },
       },
     },
-  }
+  },
 )
 ```
 
@@ -186,7 +186,7 @@ toHTML(
   [
     /* array of portable text blocks */
   ],
-  {onMissingComponent: false}
+  {onMissingComponent: false},
 )
 
 // or, pass it a function:
@@ -205,7 +205,7 @@ toHTML(
         nodeType: options.nodeType,
       })
     },
-  }
+  },
 )
 ```
 

@@ -6,7 +6,7 @@ import * as fixtures from './fixtures'
 
 const render = (
   value: ArbitraryTypedObject | ArbitraryTypedObject[],
-  options: PortableTextOptions
+  options: PortableTextOptions,
 ) => toHTML(value, {...options, onMissingComponent: false})
 
 tap.test('never mutates input', (t) => {
