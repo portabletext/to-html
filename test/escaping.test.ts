@@ -6,7 +6,7 @@ import * as fixtures from './fixtures'
 
 const render = (
   value: ArbitraryTypedObject | ArbitraryTypedObject[],
-  options?: PortableTextOptions
+  options?: PortableTextOptions,
 ) => toHTML(value, {onMissingComponent: false, ...options})
 
 tap.test('escapes link hrefs', (t) => {

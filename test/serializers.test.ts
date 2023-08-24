@@ -21,11 +21,11 @@ tap.test('can override unknown mark component', (t) => {
         unknownMark: ({children, markType}) =>
           `<span class="unknown">Unknown (${markType}): ${children}</span>`,
       },
-    }
+    },
   )
   t.same(
     result,
-    '<p><span class="unknown">Unknown (unknown-deco): simple</span><span class="unknown">Unknown (unknown-mark): advanced</span></p>'
+    '<p><span class="unknown">Unknown (unknown-deco): simple</span><span class="unknown">Unknown (unknown-mark): advanced</span></p>',
   )
   t.end()
 })

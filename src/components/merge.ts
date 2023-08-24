@@ -2,7 +2,7 @@ import type {PortableTextHtmlComponents, PortableTextComponents} from '../types'
 
 export function mergeComponents(
   parent: PortableTextHtmlComponents,
-  overrides: PortableTextComponents
+  overrides: PortableTextComponents,
 ): PortableTextHtmlComponents {
   const {block, list, listItem, marks, types, ...rest} = overrides
   // @todo figure out how to not `as ...` these
@@ -20,7 +20,7 @@ export function mergeComponents(
 function mergeDeeply(
   parent: PortableTextHtmlComponents,
   overrides: PortableTextComponents,
-  key: 'block' | 'list' | 'listItem' | 'marks' | 'types'
+  key: 'block' | 'list' | 'listItem' | 'marks' | 'types',
 ): PortableTextHtmlComponents[typeof key] {
   const override = overrides[key]
   const parentVal = parent[key]
