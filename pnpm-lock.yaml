@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@portabletext/toolkit':
-    specifier: ^2.0.8
-    version: 2.0.8
+    specifier: ^2.0.9
+    version: 2.0.9
   '@portabletext/types':
     specifier: ^2.0.7
     version: 2.0.7
@@ -1859,8 +1859,8 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@portabletext/toolkit@2.0.8:
-    resolution: {integrity: sha512-MI3FKYZiL+/dYsClkkTDRjSvNS7K4j+U2LNZ5XIEoq67qCY0l7CYjvT0fn+lFBEUxjegtEmbxLk6T9nV/iXA+Q==}
+  /@portabletext/toolkit@2.0.9:
+    resolution: {integrity: sha512-6/P/fsCGLFhztVGJRwIMePmwGbOH1Uvoim04XPh38pcC+wWT3KJ97Hn1HPWmuxd9kGdxyySQpThfYZbSmroGpg==}
     engines: {node: ^14.13.1 || >=16.0.0}
     dependencies:
       '@portabletext/types': 2.0.7
@@ -2864,6 +2864,7 @@ packages:
   /cosmiconfig@8.2.0:
     resolution: {integrity: sha512-3rTMnFJA1tCOPwRxtgF4wd7Ab2qvDbL8jX+3smjIbS4HlZBagTlpERbdN7iAbWlrfxE3M8c27kTwTawQ7st+OQ==}
     engines: {node: '>=14'}
+    requiresBuild: true
     dependencies:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
@@ -4408,6 +4409,7 @@ packages:
 
   /json-parse-even-better-errors@2.3.1:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
+    requiresBuild: true
     dev: true
 
   /json-schema-traverse@0.4.1:
@@ -4497,6 +4499,7 @@ packages:
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
+    requiresBuild: true
     dev: true
 
   /load-json-file@4.0.0:
@@ -4557,6 +4560,7 @@ packages:
 
   /lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
+    requiresBuild: true
     dev: true
 
   /lodash.kebabcase@4.1.1:
