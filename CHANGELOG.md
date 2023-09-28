@@ -5,6 +5,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/portabletext/to-html/compare/v2.0.3...v2.0.4) (2023-09-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @portabletext/toolkit to ^2.0.9 ([#43](https://github.com/portabletext/to-html/issues/43)) ([11850ac](https://github.com/portabletext/to-html/commit/11850acd4d38587666b652da55f36ae2a1a17409))
+* **deps:** update dependency @portabletext/types to ^2.0.7 ([#44](https://github.com/portabletext/to-html/issues/44)) ([9d17d6e](https://github.com/portabletext/to-html/commit/9d17d6e642dca5d4f20e29ce4e3a58dce3577761))
+
 ## [2.0.3](https://github.com/portabletext/to-html/compare/v2.0.2...v2.0.3) (2023-08-24)
 
 ### Bug Fixes
