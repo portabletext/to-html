@@ -6073,8 +6073,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /tap-mocha-reporter@5.0.3:
-    resolution: {integrity: sha512-6zlGkaV4J+XMRFkN0X+yuw6xHbE9jyCZ3WUKfw4KxMyRGOpYSRuuQTRJyWX88WWuLdVTuFbxzwXhXuS2XE6o0g==}
+  /tap-mocha-reporter@5.0.4:
+    resolution: {integrity: sha512-J+YMO8B7lq1O6Zxd/jeuG27vJ+Y4tLiRMKPSb7KR6FVh86k3Rq1TwYc2GKPyIjCbzzdMdReh3Vfz9L5cg1Z2Bw==}
     engines: {node: '>= 8'}
     hasBin: true
     dependencies:
@@ -6141,7 +6141,7 @@ packages:
       rimraf: 3.0.2
       signal-exit: 3.0.7
       source-map-support: 0.5.21
-      tap-mocha-reporter: 5.0.3
+      tap-mocha-reporter: 5.0.4
       tap-parser: 11.0.2
       tap-yaml: 1.0.2
       tcompare: 5.0.7
