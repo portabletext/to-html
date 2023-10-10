@@ -122,7 +122,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.6",
     "rimraf": "^4.4.1",
-    "tap": "^16.3.9",
+    "tap": "^18.4.5",
     "typedoc": "^0.25.1",
     "typescript": "^5.2.2"
   },
