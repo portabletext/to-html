@@ -10,7 +10,7 @@ dependencies:
     version: 2.0.9
   '@portabletext/types':
     specifier: ^2.0.7
-    version: 2.0.7
+    version: 2.0.8
 
 devDependencies:
   '@babel/core':
@@ -1863,11 +1863,11 @@ packages:
     resolution: {integrity: sha512-6/P/fsCGLFhztVGJRwIMePmwGbOH1Uvoim04XPh38pcC+wWT3KJ97Hn1HPWmuxd9kGdxyySQpThfYZbSmroGpg==}
     engines: {node: ^14.13.1 || >=16.0.0}
     dependencies:
-      '@portabletext/types': 2.0.7
+      '@portabletext/types': 2.0.8
     dev: false
 
-  /@portabletext/types@2.0.7:
-    resolution: {integrity: sha512-kWjS2lguGKHYDsHeK83cXonuYQCIP4mfNwnTjCdDpIPf7CQ4eTuKjYKxJ2w2aksbsh1DwSk1h+xZ64ADiNdTGg==}
+  /@portabletext/types@2.0.8:
+    resolution: {integrity: sha512-eiq9/kMX2bYezS4/kLFk3xNnruCFjCDdw6aYEv5ECHVKkYROiuLd3/AsP5d7tWF3+kPPy6tB0Wq8aqDG/URHGA==}
     engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
     dev: false
 
