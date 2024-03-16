@@ -1,4 +1,4 @@
-import type {PortableTextBlock, ArbitraryTypedObject} from '@portabletext/types'
+import type {ArbitraryTypedObject,PortableTextBlock} from '@portabletext/types'
 
 const input: (PortableTextBlock | ArbitraryTypedObject)[] = [
   {

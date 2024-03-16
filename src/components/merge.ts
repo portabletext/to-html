@@ -1,9 +1,10 @@
-import type {PortableTextHtmlComponents, PortableTextComponents} from '../types'
+import type {PortableTextComponents, PortableTextHtmlComponents} from '../types'
 
 export function mergeComponents(
   parent: PortableTextHtmlComponents,
   overrides: PortableTextComponents,
 ): PortableTextHtmlComponents {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {block, list, listItem, marks, types, ...rest} = overrides
   // @todo figure out how to not `as ...` these
   return {

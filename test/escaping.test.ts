@@ -1,5 +1,6 @@
-import tap from 'tap'
 import type {ArbitraryTypedObject} from '@portabletext/types'
+import tap from 'tap'
+
 import type {PortableTextOptions} from '../src'
 import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'

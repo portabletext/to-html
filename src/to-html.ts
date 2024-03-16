@@ -1,20 +1,3 @@
-import type {
-  ArbitraryTypedObject,
-  PortableTextBlock,
-  PortableTextListItemBlock,
-  PortableTextMarkDefinition,
-  PortableTextSpan,
-  TypedObject,
-} from '@portabletext/types'
-import type {
-  MissingComponentHandler,
-  NodeRenderer,
-  PortableTextHtmlComponents,
-  PortableTextOptions,
-  HtmlPortableTextList,
-  Serializable,
-  SerializedBlock,
-} from './types'
 import {
   buildMarksTree,
   isPortableTextBlock,
@@ -24,12 +7,30 @@ import {
   isPortableTextToolkitTextNode,
   nestLists,
   spanToPlainText,
-  ToolkitNestedPortableTextSpan,
-  ToolkitTextNode,
+  type ToolkitNestedPortableTextSpan,
+  type ToolkitTextNode,
 } from '@portabletext/toolkit'
+import type {
+  ArbitraryTypedObject,
+  PortableTextBlock,
+  PortableTextListItemBlock,
+  PortableTextMarkDefinition,
+  PortableTextSpan,
+  TypedObject,
+} from '@portabletext/types'
+
 import {defaultComponents} from './components/defaults'
 import {mergeComponents} from './components/merge'
 import {escapeHTML} from './escape'
+import type {
+  HtmlPortableTextList,
+  MissingComponentHandler,
+  NodeRenderer,
+  PortableTextHtmlComponents,
+  PortableTextOptions,
+  Serializable,
+  SerializedBlock,
+} from './types'
 import {
   printWarning,
   unknownBlockStyleWarning,
@@ -113,6 +114,7 @@ const getNodeRenderer = (
     let children = tree.children
     if (node.style && node.style !== 'normal') {
       // Wrap any other style in whatever the block component says to use
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const {listItem, ...blockNode} = node
       children = renderNode({node: blockNode, index, isInline: false, renderNode})
     }
@@ -164,6 +166,7 @@ const getNodeRenderer = (
   }
 
   function renderBlock(node: PortableTextBlock, index: number, isInline: boolean): string {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {_key, ...props} = serializeBlock({node, index, isInline, renderNode})
     const style = props.node.style || 'normal'
     const handler =

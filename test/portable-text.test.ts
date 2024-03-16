@@ -1,13 +1,15 @@
-import tap from 'tap'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type {ArbitraryTypedObject} from '@portabletext/types'
+import tap from 'tap'
+
+import {escapeHTML} from '../src'
+import {toHTML} from '../src/to-html'
 import type {
+  MissingComponentHandler,
   PortableTextHtmlComponents,
   PortableTextMarkComponent,
   PortableTextOptions,
-  MissingComponentHandler,
 } from '../src/types'
-import {escapeHTML} from '../src'
-import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'
 
 const render = (

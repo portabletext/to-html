@@ -1,6 +1,7 @@
 import type {ArbitraryTypedObject} from '@portabletext/types'
-import type {PortableTextOptions} from '../src'
 import tap from 'tap'
+
+import type {PortableTextOptions} from '../src'
 import {toHTML} from '../src/to-html'
 
 const render = (value: ArbitraryTypedObject, options: PortableTextOptions) =>
