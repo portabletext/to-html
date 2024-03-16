@@ -1,7 +1,7 @@
 import type {PortableTextBlockStyle} from '@portabletext/types'
 
 import type {PortableTextBlockComponent, PortableTextHtmlComponents} from '../types'
-import {DefaultListItem,defaultLists} from './list'
+import {DefaultListItem, defaultLists} from './list'
 import {defaultMarks} from './marks'
 import {
   DefaultUnknownBlockStyle,
