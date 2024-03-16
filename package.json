@@ -126,7 +126,7 @@
     "typedoc": "^0.25.2",
     "typescript": "^5.2.2"
   },
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.15.4",
   "engines": {
     "node": "^14.13.1 || >=16.0.0"
   },
