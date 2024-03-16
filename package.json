@@ -106,7 +106,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@commitlint/cli": "^19.2.0",
     "@commitlint/config-conventional": "^19.1.0",
-    "@sanity/pkg-utils": "^4.4.1",
+    "@sanity/pkg-utils": "^5.0.2",
     "@types/tap": "^15.0.10",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
