@@ -20,12 +20,8 @@
     ".": {
       "types": "./dist/pt-to-html.d.ts",
       "source": "./src/index.ts",
-      "require": "./dist/pt-to-html.js",
-      "node": {
-        "module": "./dist/pt-to-html.esm.js",
-        "import": "./dist/pt-to-html.cjs.mjs"
-      },
       "import": "./dist/pt-to-html.esm.js",
+      "require": "./dist/pt-to-html.js",
       "default": "./dist/pt-to-html.esm.js"
     },
     "./package.json": "./package.json"
@@ -64,6 +60,7 @@
       "prettier --write --cache --ignore-unknown"
     ]
   },
+  "browserslist": "extends @sanity/browserslist-config",
   "prettier": {
     "bracketSpacing": false,
     "plugins": [
