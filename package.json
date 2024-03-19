@@ -16,19 +16,19 @@
   "license": "MIT",
   "author": "Sanity.io <hello@sanity.io>",
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": {
       "types": "./dist/pt-to-html.d.ts",
       "source": "./src/index.ts",
-      "import": "./dist/pt-to-html.js",
-      "require": "./dist/pt-to-html.cjs",
+      "import": "./dist/pt-to-html.mjs",
+      "require": "./dist/pt-to-html.js",
       "default": "./dist/pt-to-html.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/pt-to-html.cjs",
-  "module": "./dist/pt-to-html.js",
+  "main": "./dist/pt-to-html.js",
+  "module": "./dist/pt-to-html.mjs",
   "source": "./src/index.ts",
   "types": "./dist/pt-to-html.d.ts",
   "files": [
