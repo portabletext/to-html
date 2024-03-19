@@ -5,6 +5,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/portabletext/to-html/compare/v2.0.7...v2.0.8) (2024-03-19)
+
+
+### Bug Fixes
+
+* ship valid ESM ([805f981](https://github.com/portabletext/to-html/commit/805f9813ec63907107b0958501e60e54e019fc04))
+
 ## [2.0.7](https://github.com/portabletext/to-html/compare/v2.0.6...v2.0.7) (2024-03-18)
 
 
