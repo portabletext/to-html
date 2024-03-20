@@ -19,7 +19,6 @@
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/pt-to-html.d.ts",
       "source": "./src/index.ts",
       "import": "./dist/pt-to-html.mjs",
       "require": "./dist/pt-to-html.js",
@@ -100,11 +99,11 @@
     "@portabletext/types": "^2.0.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.1",
+    "@babel/core": "^7.24.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
-    "@sanity/pkg-utils": "^5.0.7",
+    "@sanity/pkg-utils": "^5.1.4",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
