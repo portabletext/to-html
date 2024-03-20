@@ -19,7 +19,6 @@
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/pt-to-html.d.ts",
       "source": "./src/index.ts",
       "import": "./dist/pt-to-html.mjs",
       "require": "./dist/pt-to-html.js",
