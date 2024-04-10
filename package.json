@@ -28,7 +28,6 @@
   },
   "main": "./dist/pt-to-html.js",
   "module": "./dist/pt-to-html.mjs",
-  "source": "./src/index.ts",
   "types": "./dist/pt-to-html.d.ts",
   "files": [
     "dist",
