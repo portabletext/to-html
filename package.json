@@ -103,7 +103,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
-    "@sanity/pkg-utils": "^6.0.2",
+    "@sanity/pkg-utils": "^6.4.1",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
@@ -121,7 +121,7 @@
     "rimraf": "^4.4.1",
     "tap": "^16.3.10",
     "typedoc": "^0.25.13",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
