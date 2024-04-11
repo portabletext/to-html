@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.0.14
     version: 2.0.14
   '@portabletext/types':
-    specifier: ^2.0.12
-    version: 2.0.12
+    specifier: ^2.0.13
+    version: 2.0.13
 
 devDependencies:
   '@babel/core':
@@ -926,11 +926,11 @@ packages:
     resolution: {integrity: sha512-SIg7bnfJ3nUA5N8JF6jcLE20CCrguqZDJkopHiUYBJ3y/OHIFdkBL5roLlMAY8VQOHK0CYKr9CnJ2BK/ihuuOw==}
     engines: {node: ^14.13.1 || >=16.0.0}
     dependencies:
-      '@portabletext/types': 2.0.12
+      '@portabletext/types': 2.0.13
     dev: false
 
-  /@portabletext/types@2.0.12:
-    resolution: {integrity: sha512-dk8CcVDg7Y3DCXhuCdEJeV1GYzIfjCdEgZhrODhIiz+Zd7iXQYsdoRJXoz5lsT5w0UFxYkG+1KhQpIXSlKvyhA==}
+  /@portabletext/types@2.0.13:
+    resolution: {integrity: sha512-5xk5MSyQU9CrDho3Rsguj38jhijhD36Mk8S6mZo3huv6PM+t4M/5kJN2KFIxgvt4ONpvOEs1pVIZAV0cL0Vi+Q==}
     engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
     dev: false
 
