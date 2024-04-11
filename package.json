@@ -1,6 +1,6 @@
 {
   "name": "@portabletext/to-html",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "Render Portable Text to HTML",
   "keywords": [
     "portable-text"
