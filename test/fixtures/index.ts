@@ -33,6 +33,8 @@ import customMarks from './052-custom-marks'
 import overrideDefaultMarks from './053-override-default-marks'
 import listIssue from './060-list-issue'
 import missingMarkComponent from './061-missing-mark-serializer'
+import multipleSpaces from './062-multiple-spaces'
+import customEscapeHTML from './063-custom-escape-html'
 
 export {
   allBasicMarks,
@@ -43,6 +45,7 @@ export {
   basicMarkSingleSpan,
   basicNumberedList,
   customBlockType,
+  customEscapeHTML,
   customListItemType,
   customMarks,
   deepWeirdLists,
@@ -63,6 +66,7 @@ export {
   materializedImageSupport,
   messyLinkText,
   missingMarkComponent,
+  multipleSpaces,
   multipleSpans,
   nestedLists,
   overrideDefaultMarks,
