@@ -10,7 +10,7 @@ import {
   DefaultUnknownMark,
   DefaultUnknownType,
 } from './unknown'
-import { escapeHTML } from '../escape'
+import {escapeHTML} from '../escape'
 
 export const DefaultHardBreak = (): string => '<br/>'
 

@@ -17,6 +17,5 @@ const input: PortableTextBlock = {
 
 export default {
   input,
-  output:
-    '<p>- &eacute; &rsquo;</p>',
+  output: '<p>- &eacute; &rsquo;</p>',
 }
