@@ -126,7 +126,7 @@ const getNodeRenderer = (
     const children = node.children.map((child, childIndex) =>
       renderNode({
         node: child._key ? child : {...child, _key: `li-${index}-${childIndex}`},
-        index: index,
+        index: childIndex,
         isInline: false,
         renderNode,
       }),

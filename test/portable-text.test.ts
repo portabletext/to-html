@@ -218,6 +218,20 @@ tap.test('can render custom list item styles with fallback', (t) => {
   t.end()
 })
 
+tap.test('correctly number list items', (t) => {
+  const {input, output} = fixtures.listsWithNumbering
+  const result = render(input, {
+    components: {
+      listItem: ({children, index, value}) => {
+        const level = value?.level || 0
+        return `<li class="level-${level}">${index + 1}. ${children}</li>`
+      },
+    },
+  })
+  t.same(result, output)
+  t.end()
+})
+
 tap.test('can render custom list item styles with provided list style component', (t) => {
   const {input} = fixtures.customListItemType
   const result = render(input, {
