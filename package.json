@@ -46,13 +46,9 @@
     "pkg:check": "pkg-utils --strict",
     "prepare": "husky install",
     "prepublishOnly": "run-s build lint type-check",
+    "release": "changeset publish",
     "test": "tap test/*.test.*",
     "type-check": "tsc --noEmit"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "lint-staged": {
     "*": [
@@ -100,14 +96,12 @@
   "devDependencies": {
     "@babel/core": "^7.24.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.6",
     "@sanity/pkg-utils": "^6.8.18",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "esbuild": "^0.25.0",
     "esbuild-register": "^3.5.0",
     "eslint": "^8.57.0",
