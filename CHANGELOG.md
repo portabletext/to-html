@@ -1,5 +1,14 @@
 <!-- markdownlint-disable --><!-- textlint-disable -->
 
+## 2.0.16
+
+### Patch Changes
+
+- [#116](https://github.com/portabletext/to-html/pull/116) [`3a96420`](https://github.com/portabletext/to-html/commit/3a9642070c2a6a3528bb62c54616250b7f95801b) Thanks [@rmarscher](https://github.com/rmarscher)! - feat: ability to customize text node escaping
+  Add support for passing a custom `escapeHTML` function with the components.
+
+  Also add `&nbsp;` characters to the output when there are multiple consecutive spaces in the text.
+
 ## 2.0.15
 
 ### Patch Changes
