@@ -1,5 +1,6 @@
 import type {PortableTextBlockStyle} from '@portabletext/types'
 
+import {escapeHTML} from '../escape'
 import type {PortableTextBlockComponent, PortableTextHtmlComponents} from '../types'
 import {DefaultListItem, defaultLists} from './list'
 import {defaultMarks} from './marks'
@@ -10,7 +11,6 @@ import {
   DefaultUnknownMark,
   DefaultUnknownType,
 } from './unknown'
-import { escapeHTML } from '../escape'
 
 export const DefaultHardBreak = (): string => '<br/>'
 

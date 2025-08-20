@@ -21,7 +21,6 @@ import type {
 
 import {defaultComponents} from './components/defaults'
 import {mergeComponents} from './components/merge'
-import {escapeHTML} from './escape'
 import type {
   HtmlPortableTextList,
   MissingComponentHandler,
