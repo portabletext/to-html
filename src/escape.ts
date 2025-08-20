@@ -8,7 +8,14 @@ const charMap: Record<string, string> = {
 }
 
 export function escapeHTML(str: string): string {
-  return str.replace(/[&<>"']/g, (s) => `&${charMap[s]};`)
+  return replaceMultipleSpaces(str.replace(/[&<>"']/g, (s) => `&${charMap[s]};`));
+}
+
+export function replaceMultipleSpaces(str: string): string {
+  return str.replace(
+    / {2,}/g,
+    (match: string) => `${"&nbsp;".repeat(match.length - 1)} `
+  );
 }
 
 export function uriLooksSafe(uri: string): boolean {

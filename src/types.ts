@@ -139,6 +139,11 @@ export interface PortableTextHtmlComponents {
   hardBreak: (() => string) | false
 
   /**
+   * Used when rendering text nodes to HTML
+   */
+  escapeHTML: (html: string) => string
+
+  /**
    * Component function used when encountering a mark type there is no registered component for
    * in the `components.marks` prop.
    */

@@ -189,7 +189,7 @@ const getNodeRenderer = (
       return hardBreak ? hardBreak() : '\n'
     }
 
-    return escapeHTML(node.text)
+    return components.escapeHTML(node.text)
   }
 
   function renderCustomBlock(value: TypedObject, index: number, isInline: boolean): string {

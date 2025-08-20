@@ -10,6 +10,7 @@ import {
   DefaultUnknownMark,
   DefaultUnknownType,
 } from './unknown'
+import { escapeHTML } from '../escape'
 
 export const DefaultHardBreak = (): string => '<br/>'
 
@@ -35,6 +36,7 @@ export const defaultComponents: PortableTextHtmlComponents = {
   list: defaultLists,
   listItem: DefaultListItem,
   hardBreak: DefaultHardBreak,
+  escapeHTML: escapeHTML,
 
   unknownType: DefaultUnknownType,
   unknownMark: DefaultUnknownMark,
