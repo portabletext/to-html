@@ -1,3 +1,4 @@
 .nyc_output
 dist
 pnpm-lock.yaml
+.changeset/*.md

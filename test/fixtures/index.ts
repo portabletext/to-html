@@ -26,6 +26,7 @@ import imageWithHotspot from './025-image-with-hotspot'
 import inlineBlockWithText from './026-inline-block-with-text'
 import styledListItems from './027-styled-list-items'
 import customListItemType from './028-custom-list-item-type'
+import listsWithNumbering from './029-lists-with-numbering'
 import injectionLinkHref from './040-injection-link-href'
 import customBlockType from './050-custom-block-type'
 import overrideDefaults from './051-override-defaults'
@@ -61,6 +62,7 @@ export {
   keyless,
   linkMarkDef,
   listIssue,
+  listsWithNumbering,
   listWithoutLevel,
   marksAllTheWayDown,
   materializedImageSupport,
