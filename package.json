@@ -46,6 +46,7 @@
     "pkg:check": "pkg-utils --strict",
     "prepare": "husky install",
     "prepublishOnly": "run-s build lint type-check",
+    "release": "changeset publish",
     "test": "tap test/*.test.*",
     "type-check": "tsc --noEmit"
   },
