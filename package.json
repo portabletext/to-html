@@ -79,8 +79,8 @@
     ]
   },
   "dependencies": {
-    "@portabletext/toolkit": "^2.0.17",
-    "@portabletext/types": "^2.0.13"
+    "@portabletext/toolkit": "^2.0.18",
+    "@portabletext/types": "^2.0.15"
   },
   "devDependencies": {
     "@babel/core": "^7.28.3",
