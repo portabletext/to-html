@@ -1,5 +1,11 @@
 # @portabletext/to-html
 
+## 2.0.17
+
+### Patch Changes
+
+- [`25a8a7e`](https://github.com/portabletext/to-html/commit/25a8a7e36bae4990cd074df65f3757c9bb65c7d5) Thanks [@stipsan](https://github.com/stipsan)! - Upgrade @portabletext/toolkit and @portabletext/types dependencies
+
 ## 2.0.16
 
 ### Patch Changes
