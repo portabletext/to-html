@@ -50,15 +50,7 @@
     "type-check": "tsc --noEmit"
   },
   "browserslist": "extends @sanity/browserslist-config",
-  "prettier": {
-    "bracketSpacing": false,
-    "plugins": [
-      "prettier-plugin-packagejson"
-    ],
-    "printWidth": 100,
-    "semi": false,
-    "singleQuote": true
-  },
+  "prettier": "@sanity/prettier-config",
   "eslintConfig": {
     "parserOptions": {
       "ecmaFeatures": {
@@ -92,7 +84,9 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.6",
+    "@sanity/browserslist-config": "^1.0.5",
     "@sanity/pkg-utils": "^6.8.18",
+    "@sanity/prettier-config": "^2.0.1",
     "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
@@ -102,8 +96,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-sanity": "^7.1.2",
     "npm-run-all2": "^5.0.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-packagejson": "^2.5.0",
+    "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
     "tap": "^16.3.10",
     "typedoc": "^0.25.13",
