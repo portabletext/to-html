@@ -87,7 +87,7 @@
     "@sanity/browserslist-config": "^1.0.5",
     "@sanity/pkg-utils": "^6.8.18",
     "@sanity/prettier-config": "^2.0.1",
-    "@types/tap": "^15.0.11",
+    "@types/tap": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "esbuild": "^0.25.0",
@@ -98,7 +98,7 @@
     "npm-run-all2": "^5.0.2",
     "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
-    "tap": "^16.3.10",
+    "tap": "^18.8.0",
     "typedoc": "^0.25.13",
     "typescript": "5.4.5"
   },
