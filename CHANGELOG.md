@@ -1,4 +1,4 @@
-<!-- markdownlint-disable --><!-- textlint-disable -->
+# @portabletext/to-html
 
 ## 2.0.16
 
@@ -14,11 +14,6 @@
 ### Patch Changes
 
 - [#115](https://github.com/portabletext/to-html/pull/115) [`d39571d`](https://github.com/portabletext/to-html/commit/d39571dc16de8f6c2a559e5be005b0287952d41e) Thanks [@rmarscher](https://github.com/rmarscher)! - Use correct listItem index, see #114
-
-# 📓 Changelog
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.0.14](https://github.com/portabletext/to-html/compare/v2.0.13...v2.0.14) (2025-02-06)
 
