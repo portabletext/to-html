@@ -44,16 +44,10 @@
     "lint": "eslint .",
     "pkg:build": "pkg-utils build --strict",
     "pkg:check": "pkg-utils --strict",
-    "prepare": "husky install",
     "prepublishOnly": "run-s build lint type-check",
     "release": "changeset publish",
     "test": "tap test/*.test.*",
     "type-check": "tsc --noEmit"
-  },
-  "lint-staged": {
-    "*": [
-      "prettier --write --cache --ignore-unknown"
-    ]
   },
   "browserslist": "extends @sanity/browserslist-config",
   "prettier": {
@@ -107,14 +101,13 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-sanity": "^7.1.2",
-    "husky": "^8.0.3",
     "npm-run-all2": "^5.0.2",
     "prettier": "^3.2.5",
     "prettier-plugin-packagejson": "^2.5.0",
     "rimraf": "^4.4.1",
     "tap": "^16.3.10",
     "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "typescript": "5.4.5"
   },
   "packageManager": "pnpm@9.1.3",
   "engines": {
