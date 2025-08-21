@@ -15,10 +15,10 @@ const link: PortableTextMarkComponent<DefaultLink> = ({children, value}) => {
 }
 
 export const defaultMarks: Record<string, PortableTextMarkComponent | undefined> = {
-  em: ({children}) => `<em>${children}</em>`,
-  strong: ({children}) => `<strong>${children}</strong>`,
-  code: ({children}) => `<code>${children}</code>`,
-  underline: ({children}) => `<span style="text-decoration:underline">${children}</span>`,
+  'em': ({children}) => `<em>${children}</em>`,
+  'strong': ({children}) => `<strong>${children}</strong>`,
+  'code': ({children}) => `<code>${children}</code>`,
+  'underline': ({children}) => `<span style="text-decoration:underline">${children}</span>`,
   'strike-through': ({children}) => `<del>${children}</del>`,
   link,
 }
