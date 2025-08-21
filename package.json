@@ -98,7 +98,7 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-sanity": "^7.1.2",
-    "npm-run-all2": "^5.0.2",
+    "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
     "tap": "^16.3.10",
