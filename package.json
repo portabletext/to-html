@@ -72,7 +72,7 @@
     ]
   },
   "tap": {
-    "check-coverage": false,
+    "allow-incomplete-coverage": true,
     "node-arg": [
       "-r",
       "esbuild-register"
@@ -90,7 +90,6 @@
     "@sanity/browserslist-config": "^1.0.5",
     "@sanity/pkg-utils": "^8.0.3",
     "@sanity/prettier-config": "^2.0.1",
-    "@types/tap": "^15.0.11",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "esbuild": "^0.25.9",
@@ -101,7 +100,7 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
-    "tap": "^16.3.10",
+    "tap": "^21.1.0",
     "typedoc": "^0.28.10",
     "typescript": "5.9.2"
   },
