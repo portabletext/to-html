@@ -1,5 +1,11 @@
 # @portabletext/to-html
 
+## 3.0.0
+
+### Major Changes
+
+- [`64901f3`](https://github.com/portabletext/to-html/commit/64901f39c0b9bbbd3a7fb121566b468a3bd07a97) Thanks [@stipsan](https://github.com/stipsan)! - Drop support for Sanity Studio v2
+
 ## 2.0.17
 
 ### Patch Changes
