@@ -86,7 +86,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.6",
     "@sanity/browserslist-config": "^1.0.5",
-    "@sanity/pkg-utils": "^8.0.4",
+    "@sanity/pkg-utils": "^8.1.4",
     "@sanity/prettier-config": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -99,7 +99,7 @@
     "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
     "tap": "^21.1.0",
-    "typedoc": "^0.28.11",
+    "typedoc": "^0.28.12",
     "typescript": "5.9.2"
   },
   "packageManager": "pnpm@10.15.0",
