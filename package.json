@@ -76,7 +76,7 @@
     ]
   },
   "dependencies": {
-    "@portabletext/toolkit": "^3.0.0",
+    "@portabletext/toolkit": "^3.0.2",
     "@portabletext/types": "^2.0.15"
   },
   "devDependencies": {

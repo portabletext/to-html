@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@portabletext/toolkit':
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.0.2
+        version: 3.0.2
       '@portabletext/types':
         specifier: ^2.0.15
         version: 2.0.15
@@ -752,9 +752,9 @@ packages:
     resolution: {integrity: sha512-UA91GwWPhFExt3IizW6bOeY/pQ0BkuNwKjk9iQW9KqxluGCrg4VenZ0/L+2Y0+ZOtme72EVvg6v0zo3AMQRCeA==}
     engines: {node: '>=12'}
 
-  '@portabletext/toolkit@3.0.0':
-    resolution: {integrity: sha512-50otiRkac8unAAU+U9VdhpkZ4FqTG64kzz/6ckeBigKG/cGSU8YZLfmvDhdMH8tw+/uTI7d9Skwqm8RnTHZwDw==}
-    engines: {node: ^14.13.1 || >=16.0.0}
+  '@portabletext/toolkit@3.0.2':
+    resolution: {integrity: sha512-RjK+HsRPlMA5bharZm7hIm3LlaHSSdpKKMb1W4LjTRk4n7k9w2JBZmYjhvdSPt9CE4wjUSwMhE5v0wVeF0r5rA==}
+    engines: {node: '>=20.19 <22 || >=22.12'}
 
   '@portabletext/types@2.0.15':
     resolution: {integrity: sha512-2e6i2gSQsrA/5OL5Gm4/9bxB9MNO73Fa47zj+0mT93xkoQUCGCWX5fZh1YBJ86hszaRYlqvqG08oULxvvPPp/Q==}
@@ -4353,7 +4353,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@portabletext/toolkit@3.0.0':
+  '@portabletext/toolkit@3.0.2':
     dependencies:
       '@portabletext/types': 2.0.15
 
