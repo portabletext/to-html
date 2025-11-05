@@ -25,8 +25,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
       '@sanity/pkg-utils':
-        specifier: ^8.1.29
-        version: 8.1.29(typescript@5.9.3)
+        specifier: ^9.0.1
+        version: 9.0.1(typescript@5.9.3)
       '@sanity/prettier-config':
         specifier: ^2.0.1
         version: 2.0.1(prettier@3.6.2)
@@ -772,11 +772,11 @@ packages:
   '@rolldown/pluginutils@1.0.0-beta.45':
     resolution: {integrity: sha512-Le9ulGCrD8ggInzWw/k2J8QcbPz7eGIOWqfJ2L+1R0Opm7n6J37s2hiDWlh6LJN0Lk9L5sUzMvRHKW7UxBZsQA==}
 
-  '@rollup/plugin-alias@5.1.1':
-    resolution: {integrity: sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==}
-    engines: {node: '>=14.0.0'}
+  '@rollup/plugin-alias@6.0.0':
+    resolution: {integrity: sha512-tPCzJOtS7uuVZd+xPhoy5W4vThe6KWXNmsFCNktaAh5RTqcLiSfT4huPQIXkgJ6YCOjJHvecOAzQxLFhPxKr+g==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+      rollup: '>=4.0.0'
     peerDependenciesMeta:
       rollup:
         optional: true
@@ -991,8 +991,8 @@ packages:
   '@sanity/browserslist-config@1.0.5':
     resolution: {integrity: sha512-so+/UtCge8t1jq509hH0otbbptRz0zM/Aa0dh5MhMD7HGT6n2igWIL2VWH/9QR9e77Jn3dJsjz23mW1WCxT+sg==}
 
-  '@sanity/pkg-utils@8.1.29':
-    resolution: {integrity: sha512-97Vo9YnYOp/hEYkE9zkI0Nj4NUm5EVo1DpRUcr6tf7jzO0u65yyventjcDSdbOFVsKmUFjMa1GrY5oKRn7Mi1Q==}
+  '@sanity/pkg-utils@9.0.1':
+    resolution: {integrity: sha512-dIw/uTIhXko09mWjsjV92wxb5EBRQ5iemLaxs0+UUluJPmhBewJt1/bazRg+h0Ng8CsMSLADeTva56xrQD1X8Q==}
     engines: {node: '>=20.19 <22 || >=22.12'}
     hasBin: true
     peerDependencies:
@@ -3617,7 +3617,7 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.0-beta.45': {}
 
-  '@rollup/plugin-alias@5.1.1(rollup@4.52.5)':
+  '@rollup/plugin-alias@6.0.0(rollup@4.52.5)':
     optionalDependencies:
       rollup: 4.52.5
 
@@ -3783,7 +3783,7 @@ snapshots:
 
   '@sanity/browserslist-config@1.0.5': {}
 
-  '@sanity/pkg-utils@8.1.29(typescript@5.9.3)':
+  '@sanity/pkg-utils@9.0.1(typescript@5.9.3)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
@@ -3792,7 +3792,7 @@ snapshots:
       '@microsoft/api-extractor': 7.53.3
       '@microsoft/tsdoc-config': 0.17.1
       '@optimize-lodash/rollup-plugin': 5.0.2(rollup@4.52.5)
-      '@rollup/plugin-alias': 5.1.1(rollup@4.52.5)
+      '@rollup/plugin-alias': 6.0.0(rollup@4.52.5)
       '@rollup/plugin-babel': 6.1.0(@babel/core@7.28.5)(rollup@4.52.5)
       '@rollup/plugin-commonjs': 29.0.0(rollup@4.52.5)
       '@rollup/plugin-json': 6.1.0(rollup@4.52.5)

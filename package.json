@@ -73,7 +73,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.7",
     "@sanity/browserslist-config": "^1.0.5",
-    "@sanity/pkg-utils": "^8.1.29",
+    "@sanity/pkg-utils": "^9.0.1",
     "@sanity/prettier-config": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
