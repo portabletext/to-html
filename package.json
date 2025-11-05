@@ -38,7 +38,7 @@
   "scripts": {
     "build": "run-s clean pkg:build pkg:check",
     "clean": "rimraf .nyc_output dist coverage",
-    "coverage": "tap test/*.test.* --coverage-report=html",
+    "coverage": "vitest run --coverage",
     "docs:build": "typedoc",
     "format": "prettier --write --cache --ignore-unknown .",
     "lint": "eslint .",
@@ -46,7 +46,7 @@
     "pkg:check": "pkg-utils --strict",
     "prepublishOnly": "run-s build lint type-check",
     "release": "changeset publish",
-    "test": "tap test/*.test.*",
+    "test": "vitest run",
     "type-check": "tsc --noEmit"
   },
   "browserslist": "extends @sanity/browserslist-config",
@@ -68,13 +68,6 @@
       "dist/**/"
     ]
   },
-  "tap": {
-    "allow-incomplete-coverage": true,
-    "node-arg": [
-      "-r",
-      "esbuild-register"
-    ]
-  },
   "dependencies": {
     "@portabletext/toolkit": "^4.0.0",
     "@portabletext/types": "^3.0.0"
@@ -87,6 +80,7 @@
     "@sanity/prettier-config": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^2.1.9",
     "esbuild": "^0.25.12",
     "esbuild-register": "^3.6.0",
     "eslint": "^8.57.1",
@@ -95,9 +89,9 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "rimraf": "^4.4.1",
-    "tap": "^21.1.3",
     "typedoc": "^0.28.14",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^2.1.8"
   },
   "packageManager": "pnpm@10.20.0",
   "engines": {
