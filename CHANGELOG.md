@@ -1,5 +1,11 @@
 # @portabletext/to-html
 
+## 4.0.1
+
+### Patch Changes
+
+- [#163](https://github.com/portabletext/to-html/pull/163) [`5ec6ed0`](https://github.com/portabletext/to-html/commit/5ec6ed0d4bf6e53e2128f54e7f38fb6a7ca5fda5) Thanks [@stipsan](https://github.com/stipsan)! - CJS exports removed
+
 ## 4.0.0
 
 ### Major Changes
