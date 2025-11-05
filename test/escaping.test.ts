@@ -28,7 +28,7 @@ describe('escaping', () => {
     const result = render(input, {
       components: {
         escapeHTML: (text: string) =>
-        escapeHTML(text).replaceAll(/’/g, '&rsquo;').replaceAll(/é/g, '&eacute;'),
+          escapeHTML(text).replaceAll(/’/g, '&rsquo;').replaceAll(/é/g, '&eacute;'),
       },
     })
     expect(result).toBe(output)
