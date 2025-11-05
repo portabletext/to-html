@@ -1,5 +1,15 @@
 # @portabletext/to-html
 
+## 4.0.0
+
+### Major Changes
+
+- [#159](https://github.com/portabletext/to-html/pull/159) [`02230e0`](https://github.com/portabletext/to-html/commit/02230e02f6d01d1bbc48201bf0f1a3230cd562f1) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/toolkit to v4
+
+- [#160](https://github.com/portabletext/to-html/pull/160) [`f393c52`](https://github.com/portabletext/to-html/commit/f393c52f11bbb82e0ffc258e5d952f706d5331f4) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/types to v3
+
+- [`fa38c68`](https://github.com/portabletext/to-html/commit/fa38c68a084e2fdf426138f6a3a01f0587b8a40e) Thanks [@stipsan](https://github.com/stipsan)! - Support for node versions older than v20.19 dropped
+
 ## 3.0.0
 
 ### Major Changes
