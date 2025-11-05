@@ -37,7 +37,7 @@ importers:
         specifier: ^7.18.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.3)
       '@vitest/coverage-v8':
-        specifier: ^4.0.6
+        specifier: ^4.0.7
         version: 4.0.7(vitest@4.0.7(lightningcss@1.30.2)(terser@5.30.3)(tsx@4.20.6)(yaml@2.8.1))
       esbuild:
         specifier: ^0.25.12
@@ -67,7 +67,7 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.0.6
+        specifier: ^4.0.7
         version: 4.0.7(lightningcss@1.30.2)(terser@5.30.3)(tsx@4.20.6)(yaml@2.8.1)
 
 packages:
