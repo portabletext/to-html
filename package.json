@@ -73,12 +73,12 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.7",
     "@sanity/browserslist-config": "^1.0.5",
-    "@sanity/pkg-utils": "^9.0.1",
+    "@sanity/pkg-utils": "^9.1.0",
     "@sanity/prettier-config": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@vitest/coverage-v8": "^4.0.7",
-    "esbuild": "^0.25.12",
+    "@vitest/coverage-v8": "^4.0.9",
+    "esbuild": "^0.27.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-config-sanity": "^7.1.4",
@@ -87,7 +87,7 @@
     "rimraf": "^4.4.1",
     "typedoc": "^0.28.14",
     "typescript": "5.9.3",
-    "vitest": "^4.0.7"
+    "vitest": "^4.0.9"
   },
   "packageManager": "pnpm@10.22.0",
   "engines": {
