@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": ["dist/**", "coverage/**", "docs/**"],
+  "categories": {
+    "correctness": "error",
+    "perf": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "no-console": "error",
+    "no-array-sort": "off",
+    // @TODO these rules should be enabled, and the violations fixed
+    "no-unsafe-type-assertion": "off"
+  },
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "rules": {
+        "no-console": "off",
+        "no-unsafe-type-assertion": "off"
+      }
+    }
+  ]
+}

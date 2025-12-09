@@ -36,29 +36,12 @@
     "coverage": "vitest run --coverage",
     "docs:build": "typedoc",
     "format": "oxfmt .",
-    "lint": "eslint .",
+    "lint": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
     "prepublishOnly": "pnpm build",
     "release": "changeset publish",
-    "test": "vitest run",
-    "type-check": "tsc --noEmit"
+    "test": "vitest run"
   },
   "browserslist": "extends @sanity/browserslist-config",
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaFeatures": {
-        "modules": true
-      },
-      "ecmaVersion": 9,
-      "sourceType": "module"
-    },
-    "extends": [
-      "sanity",
-      "sanity/typescript"
-    ],
-    "ignorePatterns": [
-      "dist/**/"
-    ]
-  },
   "dependencies": {
     "@portabletext/toolkit": "^5.0.0",
     "@portabletext/types": "^4.0.0"
@@ -69,13 +52,11 @@
     "@sanity/browserslist-config": "^1.0.5",
     "@sanity/pkg-utils": "^9.2.3",
     "@sanity/tsconfig": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
     "@vitest/coverage-v8": "^4.0.15",
     "esbuild": "^0.27.1",
-    "eslint": "^8.57.1",
-    "eslint-config-sanity": "^7.1.4",
     "oxfmt": "^0.17.0",
+    "oxlint": "^1.32.0",
+    "oxlint-tsgolint": "^0.8.4",
     "typedoc": "^0.28.15",
     "typescript": "5.9.3",
     "vitest": "^4.0.15"
