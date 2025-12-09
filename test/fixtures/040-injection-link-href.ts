@@ -105,7 +105,6 @@ const input: PortableTextBlock = {
     {
       _type: 'link',
       _key: 'jsUri',
-      // eslint-disable-next-line no-script-url
       href: 'javascript:alert("no this shouldnt execute")',
     },
     {

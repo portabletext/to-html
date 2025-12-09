@@ -53,7 +53,6 @@
     "@sanity/pkg-utils": "^9.2.3",
     "@sanity/tsconfig": "^2.0.0",
     "@vitest/coverage-v8": "^4.0.15",
-    "esbuild": "^0.27.1",
     "oxfmt": "^0.17.0",
     "oxlint": "^1.32.0",
     "oxlint-tsgolint": "^0.8.4",
@@ -64,8 +63,5 @@
   "packageManager": "pnpm@10.25.0",
   "engines": {
     "node": ">=20.19 <22 || >=22.12"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

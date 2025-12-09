@@ -17,7 +17,8 @@
       "files": ["test/**"],
       "rules": {
         "no-console": "off",
-        "no-unsafe-type-assertion": "off"
+        "no-unsafe-type-assertion": "off",
+        "consistent-function-scoping": "off"
       }
     }
   ]

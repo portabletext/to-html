@@ -29,7 +29,7 @@ describe('mutations', () => {
       const passedInput = fixture.input
       try {
         render(passedInput, {components})
-      } catch (error) {
+      } catch {
         // ignore
       }
       expect(originalInput).toEqual(passedInput)

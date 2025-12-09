@@ -2,8 +2,6 @@ import type {
   ArbitraryTypedObject,
   PortableTextBlock,
   PortableTextListItemBlock,
-  PortableTextMarkDefinition,
-  PortableTextSpan,
   TypedObject,
 } from '@portabletext/types'
 
@@ -95,10 +93,7 @@ const getNodeRenderer = (
     return renderCustomBlock(node, index, isInline)
   }
 
-  function renderListItem(
-    node: PortableTextListItemBlock<PortableTextMarkDefinition, PortableTextSpan>,
-    index: number,
-  ): string {
+  function renderListItem(node: PortableTextListItemBlock, index: number): string {
     const tree = serializeBlock({node, index, isInline: false, renderNode})
     const renderer = components.listItem
     const handler = typeof renderer === 'function' ? renderer : renderer[node.listItem]
@@ -167,7 +162,6 @@ const getNodeRenderer = (
   }
 
   function renderBlock(node: PortableTextBlock, index: number, isInline: boolean): string {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {_key, ...props} = serializeBlock({node, index, isInline, renderNode})
     const style = props.node.style || 'normal'
     const handler =

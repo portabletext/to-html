@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type {ToolkitPortableTextList, ToolkitPortableTextListItem} from '@portabletext/toolkit'
 import type {
   ArbitraryTypedObject,
