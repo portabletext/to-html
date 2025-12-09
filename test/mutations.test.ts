@@ -1,10 +1,12 @@
 import type {ArbitraryTypedObject} from '@portabletext/types'
 
+import {
+  toHTML,
+  type PortableTextHtmlComponents,
+  type PortableTextOptions,
+} from '@portabletext/to-html'
 import {describe, expect, test} from 'vitest'
 
-import type {PortableTextHtmlComponents, PortableTextOptions} from '../src/types'
-
-import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'
 
 const render = (

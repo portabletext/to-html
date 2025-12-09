@@ -1,9 +1,8 @@
 import type {ArbitraryTypedObject} from '@portabletext/types'
 
+import {escapeHTML, toHTML, type PortableTextOptions} from '@portabletext/to-html'
 import {describe, expect, test} from 'vitest'
 
-import {escapeHTML, type PortableTextOptions} from '../src'
-import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'
 
 const render = (
