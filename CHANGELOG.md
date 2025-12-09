@@ -1,5 +1,17 @@
 # @portabletext/to-html
 
+## 5.0.0
+
+### Major Changes
+
+- [#176](https://github.com/portabletext/to-html/pull/176) [`66cf36e`](https://github.com/portabletext/to-html/commit/66cf36e22e4d1b4aa4b936fc57f427f556c7bcfd) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/toolkit to v5
+
+- [#177](https://github.com/portabletext/to-html/pull/177) [`f8743b7`](https://github.com/portabletext/to-html/commit/f8743b712f98e2f1f71956ddfc9353ef4ad933a2) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/types to v4
+
+### Patch Changes
+
+- [#175](https://github.com/portabletext/to-html/pull/175) [`a2b6ddf`](https://github.com/portabletext/to-html/commit/a2b6ddf2168434c35b28b926837c4c2b2ec454fd) Thanks [@stipsan](https://github.com/stipsan)! - Update LICENSE year to 2025
+
 ## 4.0.1
 
 ### Patch Changes
