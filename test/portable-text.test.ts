@@ -258,7 +258,7 @@ describe('portable-text', () => {
           value: {
             _key: '9a15ea2ed8a2',
             _type: 'code',
-            code: input[0].code,
+            code: input[0]?.['code'],
             language: 'javascript',
           },
           index: 0,
