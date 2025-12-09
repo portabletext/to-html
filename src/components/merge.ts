@@ -6,35 +6,80 @@ export function mergeComponents(
 ): PortableTextHtmlComponents {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {block, list, listItem, marks, types, ...rest} = overrides
-  // @todo figure out how to not `as ...` these
   return {
     ...parent,
-    block: mergeDeeply(parent, overrides, 'block') as PortableTextHtmlComponents['block'],
-    list: mergeDeeply(parent, overrides, 'list') as PortableTextHtmlComponents['list'],
-    listItem: mergeDeeply(parent, overrides, 'listItem') as PortableTextHtmlComponents['listItem'],
-    marks: mergeDeeply(parent, overrides, 'marks') as PortableTextHtmlComponents['marks'],
-    types: mergeDeeply(parent, overrides, 'types') as PortableTextHtmlComponents['types'],
+    block: mergeBlockComponent(parent.block, overrides.block),
+    list: mergeListComponent(parent.list, overrides.list),
+    listItem: mergeListItemComponent(parent.listItem, overrides.listItem),
+    marks: mergeMarksComponent(parent.marks, overrides.marks),
+    types: mergeTypesComponent(parent.types, overrides.types),
     ...rest,
   }
 }
 
-function mergeDeeply(
-  parent: PortableTextHtmlComponents,
-  overrides: PortableTextComponents,
-  key: 'block' | 'list' | 'listItem' | 'marks' | 'types',
-): PortableTextHtmlComponents[typeof key] {
-  const override = overrides[key]
-  const parentVal = parent[key]
-
+function mergeBlockComponent(
+  parentVal: PortableTextHtmlComponents['block'],
+  override: PortableTextComponents['block'],
+): PortableTextHtmlComponents['block'] {
   if (typeof override === 'function') {
     return override
   }
 
   if (override) {
-    return typeof parentVal === 'function'
-      ? override
-      : ({...parentVal, ...override} as PortableTextHtmlComponents[typeof key])
+    return typeof parentVal === 'function' ? override : {...parentVal, ...override}
   }
 
   return parentVal
+}
+
+function mergeListComponent(
+  parentVal: PortableTextHtmlComponents['list'],
+  override: PortableTextComponents['list'],
+): PortableTextHtmlComponents['list'] {
+  if (typeof override === 'function') {
+    return override
+  }
+
+  if (override) {
+    return typeof parentVal === 'function' ? override : {...parentVal, ...override}
+  }
+
+  return parentVal
+}
+
+function mergeListItemComponent(
+  parentVal: PortableTextHtmlComponents['listItem'],
+  override: PortableTextComponents['listItem'],
+): PortableTextHtmlComponents['listItem'] {
+  if (typeof override === 'function') {
+    return override
+  }
+
+  if (override) {
+    return typeof parentVal === 'function' ? override : {...parentVal, ...override}
+  }
+
+  return parentVal
+}
+
+function mergeMarksComponent(
+  parentVal: PortableTextHtmlComponents['marks'],
+  override: PortableTextComponents['marks'],
+): PortableTextHtmlComponents['marks'] {
+  if (!override) {
+    return parentVal
+  }
+
+  return {...parentVal, ...override}
+}
+
+function mergeTypesComponent(
+  parentVal: PortableTextHtmlComponents['types'],
+  override: PortableTextComponents['types'],
+): PortableTextHtmlComponents['types'] {
+  if (!override) {
+    return parentVal
+  }
+
+  return {...parentVal, ...override}
 }
