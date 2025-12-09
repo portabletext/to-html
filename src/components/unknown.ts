@@ -1,4 +1,5 @@
 import type {PortableTextHtmlComponents} from '../types'
+
 import {unknownTypeWarning} from '../warnings'
 
 export const DefaultUnknownType: PortableTextHtmlComponents['unknownType'] = ({

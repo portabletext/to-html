@@ -18,52 +18,25 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "source": "./src/index.ts",
-      "default": "./dist/pt-to-html.js"
-    },
+    ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
-  "main": "./dist/pt-to-html.js",
-  "types": "./dist/pt-to-html.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "!dist/stats.html",
-    "src",
-    "README.md"
+    "!dist/stats.html"
   ],
   "scripts": {
-    "build": "run-s clean pkg:build pkg:check",
-    "clean": "rimraf dist coverage",
+    "build": "tsdown",
     "coverage": "vitest run --coverage",
     "docs:build": "typedoc",
-    "format": "prettier --write --cache --ignore-unknown .",
-    "lint": "eslint .",
-    "pkg:build": "pkg-utils build --strict",
-    "pkg:check": "pkg-utils --strict",
-    "prepublishOnly": "run-s build lint type-check",
+    "format": "oxfmt .",
+    "lint": "oxlint --type-aware --type-check --deny-warnings --report-unused-disable-directives",
+    "prepublishOnly": "pnpm build",
     "release": "changeset publish",
-    "test": "vitest run",
-    "type-check": "tsc --noEmit"
-  },
-  "browserslist": "extends @sanity/browserslist-config",
-  "prettier": "@sanity/prettier-config",
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaFeatures": {
-        "modules": true
-      },
-      "ecmaVersion": 9,
-      "sourceType": "module"
-    },
-    "extends": [
-      "sanity",
-      "sanity/typescript",
-      "prettier"
-    ],
-    "ignorePatterns": [
-      "dist/**/"
-    ]
+    "test": "vitest run"
   },
   "dependencies": {
     "@portabletext/toolkit": "^5.0.0",
@@ -72,19 +45,13 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
-    "@sanity/browserslist-config": "^1.0.5",
-    "@sanity/pkg-utils": "^9.2.3",
-    "@sanity/prettier-config": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@sanity/tsconfig": "^2.0.0",
+    "@sanity/tsdown-config": "^0.4.0",
     "@vitest/coverage-v8": "^4.0.15",
-    "esbuild": "^0.27.1",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-config-sanity": "^7.1.4",
-    "npm-run-all2": "^8.0.4",
-    "prettier": "^3.7.4",
-    "rimraf": "^4.4.1",
+    "oxfmt": "^0.17.0",
+    "oxlint": "^1.32.0",
+    "oxlint-tsgolint": "^0.8.4",
+    "tsdown": "^0.17.2",
     "typedoc": "^0.28.15",
     "typescript": "5.9.3",
     "vitest": "^4.0.15"
@@ -94,6 +61,9 @@
     "node": ">=20.19 <22 || >=22.12"
   },
   "publishConfig": {
-    "access": "public"
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
   }
 }

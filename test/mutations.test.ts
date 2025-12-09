@@ -1,8 +1,12 @@
 import type {ArbitraryTypedObject} from '@portabletext/types'
+
+import {
+  toHTML,
+  type PortableTextHtmlComponents,
+  type PortableTextOptions,
+} from '@portabletext/to-html'
 import {describe, expect, test} from 'vitest'
 
-import {toHTML} from '../src/to-html'
-import type {PortableTextHtmlComponents, PortableTextOptions} from '../src/types'
 import * as fixtures from './fixtures'
 
 const render = (
@@ -27,7 +31,7 @@ describe('mutations', () => {
       const passedInput = fixture.input
       try {
         render(passedInput, {components})
-      } catch (error) {
+      } catch {
         // ignore
       }
       expect(originalInput).toEqual(passedInput)

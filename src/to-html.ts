@@ -1,3 +1,10 @@
+import type {
+  ArbitraryTypedObject,
+  PortableTextBlock,
+  PortableTextListItemBlock,
+  TypedObject,
+} from '@portabletext/types'
+
 import {
   buildMarksTree,
   isPortableTextBlock,
@@ -10,17 +17,7 @@ import {
   type ToolkitNestedPortableTextSpan,
   type ToolkitTextNode,
 } from '@portabletext/toolkit'
-import type {
-  ArbitraryTypedObject,
-  PortableTextBlock,
-  PortableTextListItemBlock,
-  PortableTextMarkDefinition,
-  PortableTextSpan,
-  TypedObject,
-} from '@portabletext/types'
 
-import {defaultComponents} from './components/defaults'
-import {mergeComponents} from './components/merge'
 import type {
   HtmlPortableTextList,
   MissingComponentHandler,
@@ -30,6 +27,9 @@ import type {
   Serializable,
   SerializedBlock,
 } from './types'
+
+import {defaultComponents} from './components/defaults'
+import {mergeComponents} from './components/merge'
 import {
   printWarning,
   unknownBlockStyleWarning,
@@ -93,10 +93,7 @@ const getNodeRenderer = (
     return renderCustomBlock(node, index, isInline)
   }
 
-  function renderListItem(
-    node: PortableTextListItemBlock<PortableTextMarkDefinition, PortableTextSpan>,
-    index: number,
-  ): string {
+  function renderListItem(node: PortableTextListItemBlock, index: number): string {
     const tree = serializeBlock({node, index, isInline: false, renderNode})
     const renderer = components.listItem
     const handler = typeof renderer === 'function' ? renderer : renderer[node.listItem]
@@ -165,7 +162,6 @@ const getNodeRenderer = (
   }
 
   function renderBlock(node: PortableTextBlock, index: number, isInline: boolean): string {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {_key, ...props} = serializeBlock({node, index, isInline, renderNode})
     const style = props.node.style || 'normal'
     const handler =

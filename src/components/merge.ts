@@ -30,12 +30,10 @@ function mergeDeeply(
     return override
   }
 
-  if (override && typeof parentVal === 'function') {
-    return override
-  }
-
   if (override) {
-    return {...parentVal, ...override} as PortableTextHtmlComponents[typeof key]
+    return typeof parentVal === 'function'
+      ? override
+      : ({...parentVal, ...override} as PortableTextHtmlComponents[typeof key])
   }
 
   return parentVal

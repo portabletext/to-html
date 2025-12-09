@@ -1,4 +1,6 @@
 {
+  "$schema": "https://typedoc.org/schema.json",
+  "tsconfig": "./tsconfig.dist.json",
   "entryPoints": ["./src/index.ts"],
   "includeVersion": true,
   "disableSources": true,

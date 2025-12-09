@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type {ArbitraryTypedObject} from '@portabletext/types'
+
+import {
+  escapeHTML,
+  toHTML,
+  type MissingComponentHandler,
+  type PortableTextHtmlComponents,
+  type PortableTextMarkComponent,
+  type PortableTextOptions,
+} from '@portabletext/to-html'
 import {describe, expect, test} from 'vitest'
 
-import {escapeHTML} from '../src'
-import {toHTML} from '../src/to-html'
-import type {
-  MissingComponentHandler,
-  PortableTextHtmlComponents,
-  PortableTextMarkComponent,
-  PortableTextOptions,
-} from '../src/types'
 import * as fixtures from './fixtures'
 
 const render = (
@@ -258,7 +259,7 @@ describe('portable-text', () => {
           value: {
             _key: '9a15ea2ed8a2',
             _type: 'code',
-            code: input[0].code,
+            code: input[0]?.['code'],
             language: 'javascript',
           },
           index: 0,

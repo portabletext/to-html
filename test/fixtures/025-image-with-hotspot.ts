@@ -28,10 +28,8 @@ const input: (PortableTextBlock | ArbitraryTypedObject)[] = [
       right: 0.2240000000000001,
     },
     hotspot: {
-      /* eslint-disable id-length */
       x: 0.505,
       y: 0.49999999999999994,
-      /* eslint-enable id-length */
       height: 0.8078078078078077,
       width: 0.5419999999999998,
     },

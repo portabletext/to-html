@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type {ToolkitPortableTextList, ToolkitPortableTextListItem} from '@portabletext/toolkit'
 import type {
   ArbitraryTypedObject,
@@ -8,6 +7,10 @@ import type {
   PortableTextListItemType,
   TypedObject,
 } from '@portabletext/types'
+
+type LooseRecord<K extends string, V> = Record<string, V> & {
+  [P in K]?: V // autocompleted keys
+}
 
 /**
  * Options for the Portable Text to HTML function
@@ -103,7 +106,7 @@ export interface PortableTextHtmlComponents {
    * Can also be set to a single component function, which would handle block styles of _any_ type.
    */
   block:
-    | Record<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
+    | LooseRecord<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
     | PortableTextBlockComponent
 
   /**
@@ -117,7 +120,7 @@ export interface PortableTextHtmlComponents {
    * Can also be set to a single component function, which would handle lists of _any_ type.
    */
   list:
-    | Record<PortableTextListItemType, PortableTextListComponent | undefined>
+    | LooseRecord<PortableTextListItemType, PortableTextListComponent | undefined>
     | PortableTextListComponent
 
   /**
@@ -129,7 +132,7 @@ export interface PortableTextHtmlComponents {
    * Can also be set to a single component function, which would handle list items of _any_ type.
    */
   listItem:
-    | Record<PortableTextListItemType, PortableTextListItemComponent | undefined>
+    | LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
     | PortableTextListItemComponent
 
   /**
