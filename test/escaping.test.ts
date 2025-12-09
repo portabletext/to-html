@@ -1,4 +1,5 @@
 import type {ArbitraryTypedObject} from '@portabletext/types'
+
 import {describe, expect, test} from 'vitest'
 
 import {escapeHTML, type PortableTextOptions} from '../src'

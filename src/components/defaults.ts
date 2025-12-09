@@ -1,7 +1,8 @@
 import type {PortableTextBlockStyle} from '@portabletext/types'
 
-import {escapeHTML} from '../escape'
 import type {PortableTextBlockComponent, PortableTextHtmlComponents} from '../types'
+
+import {escapeHTML} from '../escape'
 import {DefaultListItem, defaultLists} from './list'
 import {defaultMarks} from './marks'
 import {

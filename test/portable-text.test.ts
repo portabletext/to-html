@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type {ArbitraryTypedObject} from '@portabletext/types'
+
 import {describe, expect, test} from 'vitest'
 
-import {escapeHTML} from '../src'
-import {toHTML} from '../src/to-html'
 import type {
   MissingComponentHandler,
   PortableTextHtmlComponents,
   PortableTextMarkComponent,
   PortableTextOptions,
 } from '../src/types'
+
+import {escapeHTML} from '../src'
+import {toHTML} from '../src/to-html'
 import * as fixtures from './fixtures'
 
 const render = (
