@@ -1,11 +1,9 @@
 {
-  "extends": "./tsconfig.settings",
-  "include": ["./package.config.ts", "./src"],
+  "extends": "@sanity/tsconfig/strictest",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "lib": ["ES2016", "DOM"],
+
     "noUncheckedIndexedAccess": true,
-    "forceConsistentCasingInFileNames": true
-  }
+  },
 }

@@ -30,6 +30,9 @@ importers:
       '@sanity/prettier-config':
         specifier: ^2.0.3
         version: 2.0.3(prettier@3.7.4)
+      '@sanity/tsconfig':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.18.0
         version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1)(typescript@5.9.3)
@@ -1152,6 +1155,9 @@ packages:
     resolution: {integrity: sha512-ceKl07z8S0eHh5tcSDAZBjW1OdrYM841xO+46XZ2+ZRex6s9jbzibeupOcaHgPjGwInmqaK8NCRhzPDo2VBgYA==}
     peerDependencies:
       prettier: ^3.7.0
+
+  '@sanity/tsconfig@2.0.0':
+    resolution: {integrity: sha512-t3VkUo8Sz4g6TjffUTDXzDCghs+MelX+lTJHNPK+Htjrcv/+VJSfHZhp4Zi4GuKjmdd3VzCtFb37S7R42qpppw==}
 
   '@shikijs/engine-oniguruma@3.19.0':
     resolution: {integrity: sha512-1hRxtYIJfJSZeM5ivbUXv9hcJP3PWRo5prG/V2sWwiubUKTa+7P62d2qxCW8jiVFX4pgRHhnHNp+qeR7Xl+6kg==}
@@ -4028,6 +4034,8 @@ snapshots:
       '@prettier/plugin-oxc': 0.1.3
       prettier: 3.7.4
       prettier-plugin-packagejson: 2.5.20(prettier@3.7.4)
+
+  '@sanity/tsconfig@2.0.0': {}
 
   '@shikijs/engine-oniguruma@3.19.0':
     dependencies:
