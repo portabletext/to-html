@@ -264,8 +264,8 @@ export interface PortableTextMarkComponentOptions<M extends TypedObject = Arbitr
  */
 export type UnknownNodeType =
   | {
-      _type: string;
       [key: string]: unknown;
+      _type: string;
     }
   | TypedObject;
 
