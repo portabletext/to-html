@@ -9,25 +9,31 @@
   "bugs": {
     "url": "https://github.com/portabletext/to-html/issues"
   },
+  "license": "MIT",
+  "author": "Sanity.io <hello@sanity.io>",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/portabletext/to-html.git"
   },
-  "author": "Sanity.io <hello@sanity.io>",
-  "license": "MIT",
-  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/stats.html"
+  ],
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "!dist/stats.html",
-    "dist"
-  ],
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
   "scripts": {
     "build": "tsdown",
     "coverage": "vitest run --coverage",
@@ -56,14 +62,8 @@
     "typescript": "5.9.3",
     "vitest": "^4.0.16"
   },
-  "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": ">=20.19 <22 || >=22.12"
   },
-  "publishConfig": {
-    "exports": {
-      ".": "./dist/index.js",
-      "./package.json": "./package.json"
-    }
-  }
+  "packageManager": "pnpm@10.27.0"
 }
