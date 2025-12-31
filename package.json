@@ -46,15 +46,15 @@
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
     "@sanity/tsconfig": "^2.1.0",
-    "@sanity/tsdown-config": "^0.4.2",
-    "@vitest/coverage-v8": "^4.0.15",
-    "oxfmt": "^0.18.0",
-    "oxlint": "^1.33.0",
-    "oxlint-tsgolint": "^0.9.1",
-    "tsdown": "^0.17.2",
+    "@sanity/tsdown-config": "^0.5.2",
+    "@vitest/coverage-v8": "^4.0.16",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.36.0",
+    "oxlint-tsgolint": "^0.10.0",
+    "tsdown": "^0.18.3",
     "typedoc": "^0.28.15",
     "typescript": "5.9.3",
-    "vitest": "^4.0.15"
+    "vitest": "^4.0.16"
   },
   "packageManager": "pnpm@10.26.0",
   "engines": {
