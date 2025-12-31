@@ -40,7 +40,7 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0
       tsdown:
-        specifier: ^0.18.3
+        specifier: ^0.18.4
         version: 0.18.4(publint@0.3.16)(typescript@5.9.3)
       typedoc:
         specifier: ^0.28.15
