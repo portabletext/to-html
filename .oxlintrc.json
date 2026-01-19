@@ -8,9 +8,7 @@
   },
   "rules": {
     "no-console": "error",
-    "no-array-sort": "off",
-    // @TODO these rules should be enabled, and the violations fixed
-    "no-unsafe-type-assertion": "off"
+    "no-array-sort": "off"
   },
   "overrides": [
     {
