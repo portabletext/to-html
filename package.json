@@ -52,15 +52,15 @@
     "@changesets/changelog-github": "^0.5.2",
     "@changesets/cli": "^2.29.8",
     "@sanity/tsconfig": "^2.1.0",
-    "@sanity/tsdown-config": "^0.5.2",
-    "@vitest/coverage-v8": "^4.0.16",
-    "oxfmt": "^0.21.0",
-    "oxlint": "^1.36.0",
-    "oxlint-tsgolint": "^0.10.0",
-    "tsdown": "^0.18.4",
-    "typedoc": "^0.28.15",
+    "@sanity/tsdown-config": "^0.5.7",
+    "@vitest/coverage-v8": "^4.0.17",
+    "oxfmt": "^0.26.0",
+    "oxlint": "^1.41.0",
+    "oxlint-tsgolint": "^0.11.1",
+    "tsdown": "^0.19.0",
+    "typedoc": "^0.28.16",
     "typescript": "5.9.3",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.17"
   },
   "engines": {
     "node": ">=20.19 <22 || >=22.12"
