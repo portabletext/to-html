@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import type {ArbitraryTypedObject} from '@portabletext/types'
-
 import {
   escapeHTML,
   toHTML,
@@ -9,6 +6,8 @@ import {
   type PortableTextMarkComponent,
   type PortableTextOptions,
 } from '@portabletext/to-html'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import type {ArbitraryTypedObject} from '@portabletext/types'
 import {describe, expect, test} from 'vitest'
 
 import * as fixtures from './fixtures'

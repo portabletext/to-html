@@ -1,6 +1,5 @@
-import type {ArbitraryTypedObject} from '@portabletext/types'
-
 import {type PortableTextOptions, toHTML} from '@portabletext/to-html'
+import type {ArbitraryTypedObject} from '@portabletext/types'
 import {describe, expect, test} from 'vitest'
 
 const render = (value: ArbitraryTypedObject, options: PortableTextOptions) =>

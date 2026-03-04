@@ -1,10 +1,9 @@
-import type {ArbitraryTypedObject} from '@portabletext/types'
-
 import {
   toHTML,
   type PortableTextHtmlComponents,
   type PortableTextOptions,
 } from '@portabletext/to-html'
+import type {ArbitraryTypedObject} from '@portabletext/types'
 import {describe, expect, test} from 'vitest'
 
 import * as fixtures from './fixtures'

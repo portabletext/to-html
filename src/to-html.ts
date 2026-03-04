@@ -1,10 +1,3 @@
-import type {
-  ArbitraryTypedObject,
-  PortableTextBlock,
-  PortableTextListItemBlock,
-  TypedObject,
-} from '@portabletext/types'
-
 import {
   buildMarksTree,
   isPortableTextBlock,
@@ -17,7 +10,15 @@ import {
   type ToolkitNestedPortableTextSpan,
   type ToolkitTextNode,
 } from '@portabletext/toolkit'
+import type {
+  ArbitraryTypedObject,
+  PortableTextBlock,
+  PortableTextListItemBlock,
+  TypedObject,
+} from '@portabletext/types'
 
+import {defaultComponents} from './components/defaults'
+import {mergeComponents} from './components/merge'
 import type {
   HtmlPortableTextList,
   MissingComponentHandler,
@@ -27,9 +28,6 @@ import type {
   Serializable,
   SerializedBlock,
 } from './types'
-
-import {defaultComponents} from './components/defaults'
-import {mergeComponents} from './components/merge'
 import {
   printWarning,
   unknownBlockStyleWarning,

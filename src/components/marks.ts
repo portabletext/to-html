@@ -1,8 +1,7 @@
 import type {TypedObject} from '@portabletext/types'
 
-import type {PortableTextMarkComponent} from '../types'
-
 import {escapeHTML, uriLooksSafe} from '../escape'
+import type {PortableTextMarkComponent} from '../types'
 
 interface DefaultLink extends TypedObject {
   _type: 'link'
