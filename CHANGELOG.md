@@ -1,5 +1,13 @@
 # @portabletext/to-html
 
+## 5.0.2
+
+### Patch Changes
+
+- [#200](https://github.com/portabletext/to-html/pull/200) [`cb18e2b`](https://github.com/portabletext/to-html/commit/cb18e2b3501e35fbaca03ad44f36f125d506bae7) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/types to ^4.0.2
+
+- [#202](https://github.com/portabletext/to-html/pull/202) [`7773616`](https://github.com/portabletext/to-html/commit/777361673b3ddab925e61ef8aeb79c1abd6c08d1) Thanks [@renovate](https://github.com/apps/renovate)! - fix(deps): update dependency @portabletext/toolkit to ^5.0.2
+
 ## 5.0.1
 
 ### Patch Changes
