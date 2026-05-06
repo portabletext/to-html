@@ -10,7 +10,8 @@
     "no-console": "error",
     "no-array-sort": "off",
     // @TODO these rules should be enabled, and the violations fixed
-    "no-unsafe-type-assertion": "off"
+    "no-unsafe-type-assertion": "off",
+    "no-underscore-dangle": "off"
   },
   "overrides": [
     {
