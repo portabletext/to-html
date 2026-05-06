@@ -39,7 +39,7 @@ import {
 
 export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryTypedObject>(
   value: B | B[],
-  options: PortableTextOptions = {},
+  options: PortableTextOptions<B> = {},
 ): string {
   const {
     components: componentOverrides,

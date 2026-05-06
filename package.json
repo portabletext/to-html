@@ -49,9 +49,11 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.31.0",
+    "@sanity/client": "^7.22.0",
     "@sanity/tsconfig": "^2.1.0",
     "@sanity/tsdown-config": "^0.6.1",
     "@vitest/coverage-v8": "^4.1.5",
+    "groq": "^5.24.0",
     "oxfmt": "^0.48.0",
     "oxlint": "^1.63.0",
     "oxlint-tsgolint": "^0.22.1",
