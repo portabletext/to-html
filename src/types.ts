@@ -106,6 +106,14 @@ type PortableTextListForItem<ListItem extends string> = HtmlPortableTextList ext
     : never
   : never
 
+/** Narrows a list item block to a specific listItem style */
+type PortableTextListItemBlockForItem<B extends TypedObject, ListItem extends string> =
+  PortableTextBlockType<B> extends infer Block
+    ? Block extends TypedObject
+      ? Omit<Block, 'listItem'> & {listItem: ListItem}
+      : never
+    : never
+
 // ===== Component Map Types (3-branch conditional pattern) =====
 
 type PortableTextTypeComponents<B extends TypedObject> =
@@ -120,26 +128,26 @@ type PortableTextTypeComponents<B extends TypedObject> =
         }
 
 type PortableTextMarkComponents<B extends TypedObject> =
-  string extends CustomPortableTextMarkTypeName<B>
+  string extends PortableTextMarkTypeName<B>
     ? Record<string, PortableTextMarkComponent | undefined>
-    : CustomPortableTextMarkTypeName<B> extends never
+    : PortableTextMarkTypeName<B> extends never
       ? Record<string, PortableTextMarkComponent | undefined>
-      : Record<string, PortableTextMarkComponent | undefined> & {
-          [Mark in CustomPortableTextMarkTypeName<B>]?: PortableTextMarkComponent<
+      : {
+          [Mark in PortableTextMarkTypeName<B>]?: PortableTextMarkComponent<
             Extract<PortableTextMarkType<B>, {_type: Mark}>
           >
-        }
+        } & Record<string, PortableTextMarkComponent | undefined>
 
 type PortableTextBlockComponents<B extends TypedObject> =
-  string extends CustomPortableTextBlockStyleName<B>
+  string extends PortableTextBlockStyleName<B>
     ? LooseRecord<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
-    : CustomPortableTextBlockStyleName<B> extends never
+    : PortableTextBlockStyleName<B> extends never
       ? LooseRecord<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
-      : LooseRecord<PortableTextBlockStyle, PortableTextBlockComponent | undefined> & {
-          [Style in CustomPortableTextBlockStyleName<B>]?: PortableTextComponent<
+      : {
+          [Style in PortableTextBlockStyleName<B>]?: PortableTextComponent<
             PortableTextBlockForStyle<B, Style>
           >
-        }
+        } & Record<string, PortableTextComponent<any> | undefined>
 
 type PortableTextBlockComponentFor<B extends TypedObject> =
   PortableTextBlockType<B> extends never
@@ -147,15 +155,15 @@ type PortableTextBlockComponentFor<B extends TypedObject> =
     : PortableTextComponent<PortableTextBlockType<B>>
 
 type PortableTextListComponents<B extends TypedObject> =
-  string extends CustomPortableTextListItemName<B>
+  string extends PortableTextListItemName<B>
     ? LooseRecord<PortableTextListItemType, PortableTextListComponent | undefined>
-    : CustomPortableTextListItemName<B> extends never
-      ? LooseRecord<PortableTextListItemType, PortableTextListComponent | undefined>
-      : LooseRecord<PortableTextListItemType, PortableTextListComponent | undefined> & {
-          [Item in CustomPortableTextListItemName<B>]?: PortableTextComponent<
+    : PortableTextListItemName<B> extends never
+      ? Record<string, PortableTextComponent<any> | undefined>
+      : {
+          [Item in PortableTextListItemName<B>]?: PortableTextComponent<
             PortableTextListForItem<Item>
           >
-        }
+        } & Record<string, PortableTextComponent<any> | undefined>
 
 type PortableTextListComponentFor<_B extends TypedObject> = PortableTextListComponent
 
@@ -163,12 +171,18 @@ type PortableTextListItemComponents<B extends TypedObject> =
   string extends PortableTextListItemName<B>
     ? LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
     : PortableTextListItemName<B> extends never
-      ? LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
-      : LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
+      ? Record<string, PortableTextComponent<any> | undefined>
+      : {
+          [Item in PortableTextListItemName<B>]?: PortableTextComponent<
+            PortableTextListItemBlockForItem<B, Item>
+          >
+        } & Record<string, PortableTextComponent<any> | undefined>
 
 type PortableTextListItemComponentFor<_B extends TypedObject> = PortableTextListItemComponent
 
 // ===== Strict Component Map Types =====
+
+// Strict types: required custom + optional defaults that exist in content + reject unknown
 
 type StrictPortableTextTypeComponents<B extends TypedObject> =
   string extends CustomPortableTextTypeName<B>
@@ -182,40 +196,66 @@ type StrictPortableTextTypeComponents<B extends TypedObject> =
         }
 
 type StrictPortableTextMarkComponents<B extends TypedObject> =
-  string extends CustomPortableTextMarkTypeName<B>
+  string extends PortableTextMarkTypeName<B>
     ? Record<string, PortableTextMarkComponent | undefined>
-    : CustomPortableTextMarkTypeName<B> extends never
+    : PortableTextMarkTypeName<B> extends never
       ? Record<string, never>
       : {
+          // Custom marks are required
           [Mark in CustomPortableTextMarkTypeName<B>]-?: PortableTextMarkComponent<
+            Extract<PortableTextMarkType<B>, {_type: Mark}>
+          >
+        } & {
+          // Default marks that exist in markDefs are optional
+          [Mark in Extract<PortableTextMarkTypeName<B>, DefaultPortableTextMark>]?: PortableTextMarkComponent<
             Extract<PortableTextMarkType<B>, {_type: Mark}>
           >
         }
 
 type StrictPortableTextBlockComponents<B extends TypedObject> =
-  string extends CustomPortableTextBlockStyleName<B>
+  string extends PortableTextBlockStyleName<B>
     ? LooseRecord<PortableTextBlockStyle, PortableTextBlockComponent | undefined>
-    : CustomPortableTextBlockStyleName<B> extends never
+    : PortableTextBlockStyleName<B> extends never
       ? Record<string, never>
       : {
+          // Custom block styles are required
           [Style in CustomPortableTextBlockStyleName<B>]-?: PortableTextComponent<
+            PortableTextBlockForStyle<B, Style>
+          >
+        } & {
+          // Default block styles that exist in the content are optional
+          [Style in Extract<PortableTextBlockStyleName<B>, DefaultPortableTextBlockStyle>]?: PortableTextComponent<
             PortableTextBlockForStyle<B, Style>
           >
         }
 
 type StrictPortableTextListComponents<B extends TypedObject> =
-  string extends CustomPortableTextListItemName<B>
+  string extends PortableTextListItemName<B>
     ? LooseRecord<PortableTextListItemType, PortableTextListComponent | undefined>
-    : CustomPortableTextListItemName<B> extends never
+    : PortableTextListItemName<B> extends never
       ? Record<string, never>
       : {
+          // Custom list items are required
           [Item in CustomPortableTextListItemName<B>]-?: PortableTextComponent<
+            PortableTextListForItem<Item>
+          >
+        } & {
+          // Default list items that exist in the content are optional
+          [Item in Extract<PortableTextListItemName<B>, DefaultPortableTextListItem>]?: PortableTextComponent<
             PortableTextListForItem<Item>
           >
         }
 
-type StrictPortableTextListItemComponents<_B extends TypedObject> =
-  LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
+type StrictPortableTextListItemComponents<B extends TypedObject> =
+  string extends PortableTextListItemName<B>
+    ? LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
+    : PortableTextListItemName<B> extends never
+      ? LooseRecord<PortableTextListItemType, PortableTextListItemComponent | undefined>
+      : {
+          [Item in PortableTextListItemName<B>]-?: PortableTextComponent<
+            PortableTextListItemBlockForItem<B, Item>
+          >
+        }
 
 type StrictPortableTextTypeComponentOverrides<B extends TypedObject> =
   CustomPortableTextTypeName<B> extends never

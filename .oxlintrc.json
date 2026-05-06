@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["dist/**", "coverage/**", "docs/**"],
+  "ignorePatterns": ["dist/**", "coverage/**", "docs/**", "test/typegen/sanity.cli.ts", "test/typegen/sanity.config.ts"],
   "categories": {
     "correctness": "error",
     "perf": "error",
