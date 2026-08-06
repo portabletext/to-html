@@ -54,7 +54,7 @@
     "@vitest/coverage-v8": "^4.1.10",
     "oxfmt": "^0.48.0",
     "oxlint": "^1.63.0",
-    "oxlint-tsgolint": "^0.22.1",
+    "oxlint-tsgolint": "^7.0.2001",
     "tsdown": "^0.21.10",
     "typedoc": "^0.28.20",
     "typescript": "5.9.3",
