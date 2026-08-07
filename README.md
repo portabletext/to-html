@@ -20,9 +20,7 @@ import {toHTML} from '@portabletext/to-html'
 
 console.log(
   toHTML(portableTextBlocks, {
-    components: {
-      /* optional object of custom components to use */
-    },
+    components: {/* optional object of custom components to use */},
   }),
 )
 ```
@@ -154,23 +152,18 @@ If you override the default components but still want access to the original one
 ```ts
 import {defaultComponents, toHTML, escapeHTML} from '@portabletext/to-html'
 
-toHTML(
-  [
-    /* array of portable text blocks */
-  ],
-  {
-    components: {
-      marks: {
-        link: ({children, value, ...rest}) => {
-          const href = value.href || ''
-          return href.startsWith('https://my.site/')
-            ? `<a href="${escapeHTML(href)}" class="internalLink">${children}</a>`
-            : defaultComponents({children, value, ...rest})
-        },
+toHTML([/* array of portable text blocks */], {
+  components: {
+    marks: {
+      link: ({children, value, ...rest}) => {
+        const href = value.href || ''
+        return href.startsWith('https://my.site/')
+          ? `<a href="${escapeHTML(href)}" class="internalLink">${children}</a>`
+          : defaultComponents({children, value, ...rest})
       },
     },
   },
-)
+})
 ```
 
 ## Disabling warnings / handling unknown types
@@ -179,34 +172,24 @@ When the library encounters a block, mark, list or list item with a type that is
 
 To disable this behavior, you can either pass `false` to the `onMissingComponent` property, or give it a custom function you want to use to report the error. For instance:
 
-```jsx
+```tsx
 import {toHTML} from '@portabletext/to-html'
 
-toHTML(
-  [
-    /* array of portable text blocks */
-  ],
-  {onMissingComponent: false},
-)
+toHTML([/* array of portable text blocks */], {onMissingComponent: false})
 
 // or, pass it a function:
 
-toHTML(
-  [
-    /* array of portable text blocks */
-  ],
-  {
-    onMissingComponent: (message, options) => {
-      myErrorLogger.report(message, {
-        // eg `someUnknownType`
-        type: options.type,
+toHTML([/* array of portable text blocks */], {
+  onMissingComponent: (message, options) => {
+    myErrorLogger.report(message, {
+      // eg `someUnknownType`
+      type: options.type,
 
-        // 'block' | 'mark' | 'blockStyle' | 'listStyle' | 'listItemStyle'
-        nodeType: options.nodeType,
-      })
-    },
+      // 'block' | 'mark' | 'blockStyle' | 'listStyle' | 'listItemStyle'
+      nodeType: options.nodeType,
+    })
   },
-)
+})
 ```
 
 ## Missing links

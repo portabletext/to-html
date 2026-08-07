@@ -8,7 +8,10 @@ import type {
   TypedObject,
 } from '@portabletext/types'
 
-type LooseRecord<K extends string, V> = Record<string, V> & {
+/**
+ * A record type that allows for autocompletion of keys, but also allows for arbitrary keys to be used.
+ */
+export type LooseRecord<K extends string, V> = Record<string, V> & {
   [P in K]?: V // autocompleted keys
 }
 

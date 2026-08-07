@@ -47,22 +47,22 @@
     "@portabletext/types": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.1",
-    "@sanity/tsconfig": "^2.1.0",
-    "@sanity/tsdown-config": "^0.6.1",
+    "@sanity/tsconfig": "^2.2.1",
+    "@sanity/tsdown-config": "^0.23.0",
     "@vitest/coverage-v8": "^4.1.10",
-    "oxfmt": "^0.48.0",
-    "oxlint": "^1.63.0",
-    "oxlint-tsgolint": "^0.22.1",
-    "tsdown": "^0.21.10",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "tsdown": "^0.22.14",
     "typedoc": "^0.28.20",
-    "typescript": "5.9.3",
-    "vite": "8.0.16",
+    "typescript": "6.0.3",
+    "vite": "^8.2.1",
     "vitest": "^4.1.10"
   },
   "engines": {
     "node": ">=20.19 <22 || >=22.12"
   },
-  "packageManager": "pnpm@10.33.3"
+  "packageManager": "pnpm@11.18.0"
 }
