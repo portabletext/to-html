@@ -1,5 +1,19 @@
 # @portabletext/to-html
 
+## 5.0.3
+
+### Patch Changes
+
+- [#216](https://github.com/portabletext/to-html/pull/216) [`cda2ee1`](https://github.com/portabletext/to-html/commit/cda2ee157d5370cb65b9e5a365b7f2a4f9c16e3b) Thanks [@rexxars](https://github.com/rexxars)! - fix: escape unknown type/mark names rendered by the fallback components
+
+  The default `unknownType` and `unknownMark` components embedded the node's
+  `_type`/mark name in their output without escaping it, so a crafted type name
+  could inject arbitrary HTML into the rendered output.
+
+  Low severity: it only applies when unvalidated Portable Text reaches the
+  renderer. Types and marks are normally checked against a known schema before
+  being served, which rules this out.
+
 ## 5.0.2
 
 ### Patch Changes
