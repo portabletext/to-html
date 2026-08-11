@@ -1,0 +1,5 @@
+# Packages in this org are released and consumed together, so a new version of one is often
+# needed here the same day it is published. The release age policy still applies to everything
+# else.
+minimumReleaseAgeExclude:
+  - '@portabletext/*'
