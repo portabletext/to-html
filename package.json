@@ -43,7 +43,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@portabletext/toolkit": "^5.0.2",
+    "@portabletext/toolkit": "^6.0.0",
     "@portabletext/types": "^4.0.2"
   },
   "devDependencies": {
