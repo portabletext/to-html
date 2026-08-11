@@ -36,6 +36,7 @@ import listIssue from './060-list-issue'
 import missingMarkComponent from './061-missing-mark-serializer'
 import multipleSpaces from './062-multiple-spaces'
 import customEscapeHTML from './063-custom-escape-html'
+import skippedListLevels from './064-skipped-list-levels'
 
 export {
   allBasicMarks,
@@ -75,5 +76,6 @@ export {
   overrideDefaults,
   plainHeaderBlock,
   singleSpan,
+  skippedListLevels,
   styledListItems,
 }
