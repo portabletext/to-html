@@ -1,5 +1,72 @@
 # @portabletext/to-html
 
+## 6.0.0
+
+### Major Changes
+
+- [#220](https://github.com/portabletext/to-html/pull/220) [`3e429a5`](https://github.com/portabletext/to-html/commit/3e429a57181839f4677f7c5d861a1640f395ee73) Thanks [@rexxars](https://github.com/rexxars)! - Node.js 22.12 or later is now required
+
+  The previous range also allowed Node.js 20.19 and later. Node.js 20 reached end of life in April 2026, so it is no longer supported here.
+
+  If you render on Node.js 20, upgrade to 22.12 or later before taking this version. Installing on an older release will fail the `engines` check. Nothing changes for browsers or for bundled output.
+
+- [#220](https://github.com/portabletext/to-html/pull/220) [`3e429a5`](https://github.com/portabletext/to-html/commit/3e429a57181839f4677f7c5d861a1640f395ee73) Thanks [@rexxars](https://github.com/rexxars)! - Lists now nest as deeply as their `level` says they do
+
+  #### When you will see a difference
+
+  Only when your content has a list item that starts deeper than level 1, or that jumps more than one level at a time, such as going straight from level 1 to level 3. Lists that start at level 1 and change one level at a time render exactly as before.
+
+  Portable Text stores list nesting as a flat `level` number on each block, and an editor lets an author produce both of those shapes. Previously the rendered nesting could be shallower than `level` said, and an item returning to a shallower level could start a new list instead of continuing the one it belonged to, which restarts the numbering of an `<ol>`.
+
+  #### What changes
+
+  Two list items, the first at level 3 and the second at level 1, used to render as two unrelated lists:
+
+  ```html
+  <ul>
+    <li>Level 3</li>
+  </ul>
+  <ul>
+    <li>Level 1</li>
+  </ul>
+  ```
+
+  They now render as one list, three levels deep, with the second item as a sibling at the top:
+
+  ```html
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li>Level 3</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Level 1</li>
+  </ul>
+  ```
+
+  The levels nobody authored have to be filled with something, and HTML can only put a list inside a list item, so they become empty list items. A browser draws a bullet or a number for each of them.
+
+  #### What you may need to do
+
+  Snapshot tests and any stored HTML covering lists that start deep or skip levels will need regenerating.
+
+  If the empty markers are visible somewhere you do not want them, the durable fix is the content itself, since a list skipping from level 1 to level 3 usually means an authoring mistake. To hide them in the meantime, target list items whose only child is a nested list:
+
+  ```css
+  li:has(> ul:only-child),
+  li:has(> ol:only-child) {
+    list-style: none;
+  }
+  ```
+
+  Note that in an `<ol>` this hides the number but the item still counts, so the numbering of the items after it is unchanged.
+
+  Fixes [#108](https://github.com/portabletext/to-html/issues/108)
+
 ## 5.0.3
 
 ### Patch Changes
