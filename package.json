@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.1",
+    "@changesets/cli": "^3.0.2",
     "@sanity/tsconfig": "^2.2.1",
     "@sanity/tsdown-config": "^0.23.0",
     "@vitest/coverage-v8": "^4.1.10",
