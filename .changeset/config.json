@@ -1,8 +1,9 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
   "changelog": ["@changesets/changelog-github", {"repo": "portabletext/to-html"}],
   "commit": false,
   "access": "public",
   "baseBranch": "main",
+  "format": "oxfmt",
   "updateInternalDependencies": "patch"
 }
