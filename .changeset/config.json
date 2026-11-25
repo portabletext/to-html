@@ -3,6 +3,5 @@
   "changelog": ["@changesets/changelog-github", {"repo": "portabletext/to-html"}],
   "commit": false,
   "access": "public",
-  "baseBranch": "main",
   "updateInternalDependencies": "patch"
 }

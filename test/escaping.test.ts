@@ -1,4 +1,5 @@
-import {escapeHTML, toHTML, type PortableTextOptions} from '@portabletext/to-html'
+import {escapeHTML, toHTML, uriLooksSafe, type PortableTextOptions} from '@portabletext/to-html'
+import {uriLooksSafe as toolkitUriLooksSafe} from '@portabletext/toolkit'
 import type {ArbitraryTypedObject} from '@portabletext/types'
 import {describe, expect, test} from 'vitest'
 
@@ -31,6 +32,12 @@ describe('escaping', () => {
       },
     })
     expect(result).toBe(output)
+  })
+})
+
+describe('uriLooksSafe', () => {
+  test('is the toolkit implementation', () => {
+    expect(uriLooksSafe).toBe(toolkitUriLooksSafe)
   })
 })
 

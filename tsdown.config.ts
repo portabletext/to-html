@@ -1,5 +1,8 @@
 import {defineConfig} from '@sanity/tsdown-config'
+import type {UserConfig} from 'tsdown'
 
-export default defineConfig({
+const config: Promise<UserConfig> = defineConfig({
   tsconfig: './tsconfig.dist.json',
 })
+
+export default config

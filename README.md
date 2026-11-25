@@ -44,9 +44,9 @@ The passed components will be merged with the default components.
 In the below examples we use the [htm](https://github.com/developit/htm) and [vhtml](https://github.com/developit/vhtml) modules to render "safe" HTML.
 
 ```js
+import {toHTML, uriLooksSafe} from '@portabletext/to-html'
 import htm from 'htm'
 import vhtml from 'vhtml'
-import {toHTML, uriLooksSafe} from '@portabletext/to-html'
 
 const html = htm.bind(vhtml)
 
