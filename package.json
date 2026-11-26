@@ -3,6 +3,7 @@
   "version": "6.0.0",
   "description": "Render Portable Text to HTML",
   "keywords": [
+    "html",
     "portable-text"
   ],
   "homepage": "https://github.com/portabletext/to-html#readme",
