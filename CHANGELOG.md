@@ -1,5 +1,15 @@
 # @portabletext/to-html
 
+## 6.0.1
+
+### Patch Changes
+
+- [#231](https://github.com/portabletext/to-html/pull/231) [`724c24d`](https://github.com/portabletext/to-html/commit/724c24de73d173d124f8979de5d564a3bc0ce7c8) Thanks [@stipsan](https://github.com/stipsan)! - Use `uriLooksSafe` from `@portabletext/toolkit` instead of a local copy. It is still exported from this package.
+
+- [#230](https://github.com/portabletext/to-html/pull/230) [`ccd94bd`](https://github.com/portabletext/to-html/commit/ccd94bd0d69489626057d08e3a9e88b18a818ffd) Thanks [@christianhg](https://github.com/christianhg)! - fix: list `html` in the npm keywords of @portabletext/to-html
+
+  npm search and keyword filters now find it under `html`.
+
 ## 6.0.0
 
 ### Major Changes
