@@ -1,6 +1,7 @@
+import {uriLooksSafe} from '@portabletext/toolkit'
 import type {TypedObject} from '@portabletext/types'
 
-import {escapeHTML, uriLooksSafe} from '../escape'
+import {escapeHTML} from '../escape'
 import type {PortableTextMarkComponent} from '../types'
 
 interface DefaultLink extends TypedObject {

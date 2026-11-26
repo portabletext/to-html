@@ -43,26 +43,26 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@portabletext/toolkit": "^6.0.0",
+    "@portabletext/toolkit": "^6.1.0",
     "@portabletext/types": "^4.0.2"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.1",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@sanity/tsconfig": "^2.2.1",
-    "@sanity/tsdown-config": "^0.23.0",
-    "@vitest/coverage-v8": "^4.1.10",
-    "oxfmt": "^0.62.0",
-    "oxlint": "^1.77.0",
-    "oxlint-tsgolint": "^7.0.2001",
-    "tsdown": "^0.22.14",
+    "@sanity/tsdown-config": "^0.32.0",
+    "@vitest/coverage-v8": "^5.1.1",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.95.0",
+    "oxlint-tsgolint": "^7.0.2008",
+    "tsdown": "^0.23.7",
     "typedoc": "^0.28.20",
     "typescript": "6.0.3",
-    "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
   },
   "engines": {
     "node": ">=22.12"
   },
-  "packageManager": "pnpm@11.18.0"
+  "packageManager": "pnpm@12.23.0"
 }
