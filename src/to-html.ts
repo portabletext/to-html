@@ -38,8 +38,8 @@ import {
 } from './warnings'
 
 export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryTypedObject>(
-  value: B | B[],
-  options: PortableTextOptions = {},
+  value: B | B[] | null | undefined,
+  options: PortableTextOptions<B> = {},
 ): string {
   const {
     components: componentOverrides,
@@ -47,7 +47,8 @@ export function toHTML<B extends TypedObject = PortableTextBlock | ArbitraryType
   } = options
 
   const handleMissingComponent = missingComponentHandler || noop
-  const blocks = Array.isArray(value) ? value : [value]
+  // `nestLists` skips nullish entries, so a nullish `value` renders as an empty string
+  const blocks = (Array.isArray(value) ? value : [value]) as B[]
   const nested = nestLists(blocks, 'html')
   const components = componentOverrides
     ? mergeComponents(defaultComponents, componentOverrides)

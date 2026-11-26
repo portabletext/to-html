@@ -24,6 +24,11 @@ describe('portable-text', () => {
     expect(result).toBe(output)
   })
 
+  test('renders nothing for a nullish value', () => {
+    expect(toHTML(null)).toBe('')
+    expect(toHTML(undefined)).toBe('')
+  })
+
   test('builds simple one-node tree on single, markless span', () => {
     const {input, output} = fixtures.singleSpan
     const result = render(input)

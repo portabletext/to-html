@@ -1,7 +1,9 @@
-import type {PortableTextBlockStyle} from '@portabletext/types'
-
 import {escapeHTML} from '../escape'
-import type {PortableTextBlockComponent, PortableTextHtmlComponents} from '../types'
+import type {
+  DefaultPortableTextBlockStyle,
+  PortableTextBlockComponent,
+  PortableTextHtmlComponents,
+} from '../types'
 import {DefaultListItem, defaultLists} from './list'
 import {defaultMarks} from './marks'
 import {
@@ -15,8 +17,8 @@ import {
 export const DefaultHardBreak = (): string => '<br/>'
 
 export const defaultPortableTextBlockStyles: Record<
-  PortableTextBlockStyle,
-  PortableTextBlockComponent | undefined
+  DefaultPortableTextBlockStyle,
+  PortableTextBlockComponent
 > = {
   normal: ({children}) => `<p>${children}</p>`,
   blockquote: ({children}) => `<blockquote>${children}</blockquote>`,
