@@ -51,7 +51,7 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@sanity/tsconfig": "^2.2.1",
-    "@sanity/tsdown-config": "^0.32.0",
+    "@sanity/tsdown-config": "^0.33.0",
     "@vitest/coverage-v8": "^5.1.1",
     "oxfmt": "^0.80.0",
     "oxlint": "^1.95.0",

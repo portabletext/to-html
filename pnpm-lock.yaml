@@ -202,8 +202,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.1
       '@sanity/tsdown-config':
-        specifier: ^0.32.0
-        version: 0.32.0(tsdown@0.23.7(publint@0.3.25)(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.8(yaml@2.9.1))
+        specifier: ^0.33.0
+        version: 0.33.0(tsdown@0.23.7(publint@0.3.25)(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.8(yaml@2.9.1))
       '@vitest/coverage-v8':
         specifier: ^5.1.1
         version: 5.1.1(vitest@5.1.1)
@@ -932,8 +932,8 @@ packages:
   '@sanity/tsconfig@2.2.1':
     resolution: {integrity: sha512-1HbvN+W2bWixgXQnvJ9rev5vJaSbN62d+r0Y2pN6XsK6/MP9JfVyF90elBuIrDENTGgVmxB403+gZow45wq+Pg==}
 
-  '@sanity/tsdown-config@0.32.0':
-    resolution: {integrity: sha512-eGVOzH5qwVEJg6VM268oSM02ATkqIDSURc5EbJitFc1W7FopkG9lyweQTflrNtALSBDfsmZgRe/PtGak6C0CcA==}
+  '@sanity/tsdown-config@0.33.0':
+    resolution: {integrity: sha512-W1UNjMdQwx4YlG1VjOvH31VRfdcNy5qk9q+46i30D4dZ4do9eA0BFEKLQ6NjajLkr+wczNcHM+f8UDuh9kOlvg==}
     engines: {node: ^22.18.0 || ^24.11.0 || >=26.0.0}
     peerDependencies:
       '@babel/core': '*'
@@ -2277,7 +2277,7 @@ snapshots:
 
   '@sanity/tsconfig@2.2.1': {}
 
-  '@sanity/tsdown-config@0.32.0(tsdown@0.23.7(publint@0.3.25)(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.8(yaml@2.9.1))':
+  '@sanity/tsdown-config@0.33.0(tsdown@0.23.7(publint@0.3.25)(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.8(yaml@2.9.1))':
     dependencies:
       '@microsoft/api-extractor': 7.60.1
       '@microsoft/tsdoc-config': 0.18.3
