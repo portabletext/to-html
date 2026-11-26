@@ -3,3 +3,4 @@
 # else.
 minimumReleaseAgeExclude:
   - '@portabletext/*'
+  - '@sanity/tsdown-config'
