@@ -166,6 +166,54 @@ toHTML([/* array of portable text blocks */], {
 })
 ```
 
+## Sanity TypeGen compatibility
+
+When the value comes from a [Sanity TypeGen](https://www.sanity.io/docs/apis-and-sdks/sanity-typegen) query, `toHTML()` infers which custom types, marks, block styles and list styles exist, and what shape the `value` each component receives has. `null` and `undefined` values are accepted and render an empty string, so query results can be passed as-is.
+
+```ts
+import {escapeHTML, toHTML} from '@portabletext/to-html'
+
+const post = await client.fetch(postQuery, {slug})
+
+toHTML(post?.content, {
+  components: {
+    types: {
+      // `value` is typed as the `code` object from the schema
+      code: ({value}) => `<pre><code>${escapeHTML(value.code || '')}</code></pre>`,
+    },
+  },
+})
+```
+
+Components for types that can't be inferred are still allowed, and receive `any`. Three utility types help when components are defined separately from the `toHTML()` call:
+
+- `InferValue<T>` derives a Portable Text array type from any TypeGen query result type, for example `InferValue<SanityQueries[keyof SanityQueries]>`.
+- `InferComponents<T>` is the forgiving component map, the same as the inline `components` option.
+- `InferStrictComponents<T>` requires a component for every inferred custom type, mark, block style and list style that has no default, and rejects components for anything else.
+
+```ts
+import {
+  escapeHTML,
+  toHTML,
+  type InferStrictComponents,
+  type InferValue,
+} from '@portabletext/to-html'
+import type {SanityQueries} from '@sanity/client'
+
+type PortableTextValue = InferValue<SanityQueries[keyof SanityQueries]>
+
+const components = {
+  types: {
+    image: ({value}) => `<img src="${urlFor(value)}" alt="${escapeHTML(value.alt || '')}" />`,
+  },
+  // TypeScript errors when the schema gains a type, mark or style without a component here
+} satisfies InferStrictComponents<PortableTextValue>
+
+export function renderPortableText(value: PortableTextValue): string {
+  return toHTML(value, {components})
+}
+```
+
 ## Disabling warnings / handling unknown types
 
 When the library encounters a block, mark, list or list item with a type that is not known (eg it has no corresponding component in the `components` property), it will by default print a console warning.
